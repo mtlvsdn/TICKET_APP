@@ -168,4 +168,6 @@ public:
 		}
 		this->setUniqueID(newArray);
 	}
+	//OVERLOADING OPERATORS (each class 2 different overloaded operators)
+
 };
