@@ -142,6 +142,22 @@ public:
 		this->setTime("20:00");
 		//unique id & id length??
 	}
+	//COPY CONSTRUCTOR
+	Event(const Event& newEvent) {
+		this->eventType = newEvent.eventType;
+		this->numberOfRows = newEvent.numberOfRows;
+		this->zone = newEvent.zone;
+		this->name = newEvent.name;
+		this->date = newEvent.date;
+		this->time = newEvent.time;
+		this->numberOfDigitsInID = newEvent.numberOfDigitsInID;
+		this->uniqueID = new char[newEvent.numberOfDigitsInID + 1];
+		//strcpy_s(this->uniqueID, newEvent.numberOfDigitsInID + 1, newEvent.name);
+		for (int i = 0; i < newEvent.numberOfDigitsInID + 1; i++) {
+			this->uniqueID[i] = newEvent.name[i];
+		}
+		this->setEventPrice(newEvent.eventPrice);
+	}
 	//DESTRUCTOR
 	~Event() {
 		delete[] this->uniqueID;
@@ -187,6 +203,25 @@ public:
 	friend std::ostream& operator<<(std::ostream& console, const Event& newEvent);
 	//operator >> (cin)
 	friend std::istream& operator>>(std::istream& console, Event& newEvent);
+	//operator >=
+	bool operator>=(Event& newEvent) {
+		if (this->eventPrice > newEvent.eventPrice) {
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	//operator ==
+	bool operator==(Event& newEvent) {
+		if (this->date == newEvent.date) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 };
 
 //operator << (cout)
