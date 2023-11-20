@@ -1,0 +1,37 @@
+//operator =
+	Car operator=(const Car& source) {
+		this->name = source.name;
+		this->year = source.year;
+		this->engine = source.engine;
+		return *this;
+	}
+
+	EventType eventType = EventType::Movie;
+	int numberOfRows = 0;
+	int numberfOfSeatsPerRow = 0;
+	ZoneType zone = ZoneType::Category1;
+	//CHARACTERISTICS OF THE EVENT
+	std::string name = "Event Name";
+	std::string date = "20/01/2011";
+	std::string time = "20:00";
+	int numberOfDigitsInID = 10; //trebuie initializat??
+	char* uniqueID = nullptr;
+	const int eventPrice = 0;
+
+	delete[] this->name;
+		this->setName(string(source.name));
+
+
+std::ostream& operator<<(std::ostream& console, const Car& newCar) {
+	console << "NAME: " << newCar.name;
+	console << std::endl << "YEAR: " << newCar.year;
+	console << std::endl << "ENGINE: " << newCar.engine;
+	return console;
+}
+
+std::istream& operator>>(std::istream& console, Car& newCar) {
+	console >> newCar.name;
+	console >> newCar.year;
+	console >> newCar.engine;
+	return console;
+}

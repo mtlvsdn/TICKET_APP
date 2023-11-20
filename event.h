@@ -169,5 +169,43 @@ public:
 		this->setUniqueID(newArray);
 	}
 	//OVERLOADING OPERATORS (each class 2 different overloaded operators)
-
+	//operator =
+	Event operator=(const Event& source) {
+		this->eventType = source.eventType;
+		this->numberOfRows = source.numberOfRows;
+		this->numberfOfSeatsPerRow = source.numberfOfSeatsPerRow;
+		this->zone = source.zone;
+		this->name = source.name;
+		this->date = source.date;
+		this->time = source.time;
+		this->numberOfDigitsInID = source.numberOfDigitsInID;
+		delete[] this->uniqueID;
+		this->setUniqueID(source.uniqueID);
+		this->setEventPrice(source.eventPrice);
+	}
+	//operator << (cout)
+	friend std::ostream& operator<<(std::ostream& console, const Event& newEvent);
+	//operator >> (cin)
+	friend std::istream& operator>>(std::istream& console, Event& newEvent);
 };
+
+//operator << (cout)
+std::ostream& operator<<(std::ostream& console, const Event& newEvent) {
+	console << std::endl << "Number Of Rows: " << newEvent.numberOfRows;
+	console << std::endl << "Number of Seats per Row: " << newEvent.numberfOfSeatsPerRow;
+	console << std::endl << "Name: " << newEvent.name;
+	console << std::endl << "Date: " << newEvent.date;
+	console << std::endl << "Time: " << newEvent.time;
+	console << std::endl << "Ticket ID: " << newEvent.uniqueID;
+	console << std::endl << "Event Price: " << newEvent.eventPrice;
+}
+//operator >> (cin)
+std::istream& operator>>(std::istream& console, Event& newEvent) {
+	console >> newEvent.numberOfRows;
+	console >> newEvent.numberfOfSeatsPerRow;
+	console >> newEvent.name;
+	console >> newEvent.date;
+	console >> newEvent.time;
+	console >> newEvent.numberOfDigitsInID;
+	newEvent.generateTicketID();
+}
