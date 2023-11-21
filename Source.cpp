@@ -25,5 +25,5 @@ int main() {
 		std::cout << newArray[i];
 	}*/
 	Ticket ticket1;
-	std::cout << ticket1;
+	Ticket ticket2;
 }

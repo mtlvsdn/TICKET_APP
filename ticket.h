@@ -8,12 +8,12 @@ class Ticket {
 	char* uniqueID = nullptr;
 	int rowNumber = 1;
 	int seatNumber = 1;
+
+	//STATIC ATTRIBUTES
+	static const int MIN_ID_LENGTH = 10;
 public:
 	//SETTERS
 	void setZone(ZoneType newZone) {
-		if (this->eventType == EventType::Match && (this->zone == ZoneType::Category1 || this->zone == ZoneType::Category2)) {
-			throw std::exception("Zone type for matches can be only VIP and Tribune");
-		}
 		this->zone = newZone;
 	}
 	void setNumberOfDigitsInID(int newNumberOfDigitsInID) {
@@ -135,11 +135,25 @@ public:
 	friend std::ostream& operator<<(std::ostream& console, const Ticket& newTicket);
 	//operator >> (cin)
 	friend std::istream& operator>>(std::istream& console, Ticket& newTicket);
+	//operator >
+	bool operator>(const Ticket& source) {
+		if (this->rowNumber > source.rowNumber) {
+			if (this->seatNumber > source.seatNumber) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	//operator ++
+	void operator++() {
+		this->seatNumber++;
+	}
 };
 
 //operator << (cout)
 std::ostream& operator<<(std::ostream& console, const Ticket& newTicket) {
-	console << "Zone: " << newTicket.zone;
 	console << std::endl << "Ticket ID: " << newTicket.uniqueID;
 	console << std::endl << "Row Number: " << newTicket.rowNumber;
 	console << std::endl << "Seat Number: " << newTicket.seatNumber;
@@ -147,5 +161,8 @@ std::ostream& operator<<(std::ostream& console, const Ticket& newTicket) {
 }
 //operator >> (cin)
 std::istream& operator>>(std::istream& console, Ticket& newTicket) {
-
+	console >> newTicket.uniqueID;
+	console >> newTicket.rowNumber;
+	console >> newTicket.seatNumber;
+	return console;
 }

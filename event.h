@@ -21,7 +21,6 @@ private:
 	static const int MIN_NAME_LENGTH = 3;
 	static const int DATE_LENGTH = 10;
 	static const int TIME_LENGTH = 5;
-	static const int MIN_ID_LENGTH = 10;
 
 public:
 	//SETTERS LOCATION
