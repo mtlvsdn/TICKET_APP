@@ -35,3 +35,9 @@ std::istream& operator>>(std::istream& console, Car& newCar) {
 	console >> newCar.engine;
 	return console;
 }
+
+
+	std::string name;
+	int age;
+	std::string emailAddress;
+	Concession concession;

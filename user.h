@@ -1,6 +1,6 @@
 #pragma once
 
-enum class Concession { Standard, Teen = 30, Child = 50, Retired = 50 };
+enum class Concession { Standard, Teen = 30, Retired = 40, Child = 50 };
 
 class User {
 private:
@@ -75,6 +75,13 @@ public:
 		setEmailAddress(newEmailAddress);
 		setConcession(newConcession);
 	}
+	//COPY CONSTRUCTOR
+	User(const User& newUser) {
+		this->name = newUser.name;
+		this->age = newUser.age;
+		this->emailAddress = newUser.emailAddress;
+		this->concession = newUser.concession;
+	}
 	//DESTRUCTORS
 	~User() {
 
@@ -100,5 +107,47 @@ public:
 
 	}
 	//OVERLOADING OPERATORS (each class 2 different overloaded operators)
-
+	//operator =
+	User operator=(const User& source) {
+		this->setName(source.name);
+		this->setAge(source.age);
+		this->setEmailAddress(source.emailAddress);
+		this->setConcession(source.concession);
+	}
+	//operator << (cout)
+	friend std::ostream& operator<<(std::ostream& console, const User& newUser);
+	//operator >> (cin)
+	friend std::istream& operator>>(std::istream& console, User& newUser);
+	//operator ++
+	void operator++() {
+		this->age++;
+	}
+	//operator <
+	bool operator<(const User& newUser) {
+		if (this->age < newUser.age) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 };
+
+//operator << (cout)
+std::ostream& operator<<(std::ostream& console, const User& newUser) {
+	console << "Name: " << newUser.name;
+	console << "Age: " << newUser.age;
+	console << "Email Address: " << newUser.emailAddress;
+	//console << "Concession: " << newUser.concession;
+}
+//operator >> (cin)
+std::istream& operator>>(std::istream& console, User& newUser) {
+	std::string variable;
+	console >> variable;
+	newUser.setName(variable);
+	int number;
+	console >> number;
+	newUser.setAge(number);
+	console >> variable;
+	newUser.setEmailAddress(variable);
+}
