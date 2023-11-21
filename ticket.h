@@ -11,6 +11,15 @@ class Ticket {
 
 	//STATIC ATTRIBUTES
 	static const int MIN_ID_LENGTH = 10;
+	static int numberOfTickets;
+
+	//METHOD STATIC
+	static void setNumberOfTickets() {
+		numberOfTickets = 0;
+	}
+	static void increaseNumberOfTickets() {
+		numberOfTickets++;
+	}
 public:
 	//SETTERS
 	void setZone(ZoneType newZone) {
