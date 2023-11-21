@@ -41,3 +41,30 @@ std::istream& operator>>(std::istream& console, Car& newCar) {
 	int age;
 	std::string emailAddress;
 	Concession concession;
+
+	EventType eventType = EventType::Movie;
+	int numberOfRows = 0;
+	int numberfOfSeatsPerRow = 0;
+	ZoneType zone = ZoneType::Category1;
+	//CHARACTERISTICS OF THE EVENT
+	std::string name = "Event Name";
+	std::string date = "20/01/2011";
+	std::string time = "20:00";
+	int numberOfDigitsInID = 10; //trebuie initializat??
+	char* uniqueID = nullptr;
+	const int eventPrice = 0;
+
+	price
+
+	User(const User& newUser) {
+		this->name = newUser.name;
+		this->age = newUser.age;
+		this->emailAddress = newUser.emailAddress;
+		this->concession = newUser.concession;
+	}
+
+	ZoneType zone = ZoneType::Category1;
+	int numberOfDigitsInID = 10;
+	char* uniqueID = nullptr;
+	int rowNumber = 1;
+	int seatNumber = 1;

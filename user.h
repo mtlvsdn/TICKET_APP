@@ -4,10 +4,11 @@ enum class Concession { Standard, Teen = 30, Retired = 40, Child = 50 };
 
 class User {
 private:
-	std::string name;
-	int age;
-	std::string emailAddress;
-	Concession concession;
+	std::string name = "John Doe";
+	int age = 23;
+	std::string emailAddress = "john.doe23@gmail.com";
+	Concession concession = Concession::Standard;
+	double price = 100;
 
 	//STATIC ATTRIBUTES
 	static const int MIN_NAME_LENGTH = 3;
@@ -139,6 +140,7 @@ std::ostream& operator<<(std::ostream& console, const User& newUser) {
 	console << "Age: " << newUser.age;
 	console << "Email Address: " << newUser.emailAddress;
 	//console << "Concession: " << newUser.concession;
+	return console;
 }
 //operator >> (cin)
 std::istream& operator>>(std::istream& console, User& newUser) {
@@ -150,4 +152,5 @@ std::istream& operator>>(std::istream& console, User& newUser) {
 	newUser.setAge(number);
 	console >> variable;
 	newUser.setEmailAddress(variable);
+	return console;
 }
