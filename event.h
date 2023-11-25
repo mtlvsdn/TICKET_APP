@@ -146,6 +146,7 @@ public:
 			return false;
 		}
 	}
+	
 };
 
 //operator << (cout)
