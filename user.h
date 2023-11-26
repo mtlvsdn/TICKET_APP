@@ -6,11 +6,12 @@ class User {
 private:
 	std::string name = "John Doe";
 	char* nameUser = nullptr;
-	int age = 23;
+	int age = 17;
 	char birthYear[5] = "2000";
 	std::string emailAddress = "john.doe23@gmail.com";
 	Concession concession = Concession::Standard;
 	double price = 100;
+	bool isAdult = false;
 
 	//STATIC ATTRIBUTES
 	static const int MIN_NAME_LENGTH = 3;
@@ -70,6 +71,12 @@ public:
 		}
 		
 	}
+	void setAdult() {
+		if (this->age < 18) {
+			throw std::exception("User is underaged!");
+		}
+		this->isAdult = true;
+	}
 	//GETTERS
 	std::string getName() {
 		return this->name;
@@ -91,9 +98,16 @@ public:
 	Concession getConcession() {
 		return this->concession;
 	}
+	bool getAdult() {
+		return this->isAdult;
+	}
 	//CONSTRUCTORS
 	User() {
 
+	}
+	User(std::string newName, int newAge) {
+		setName(newName);
+		setAge(newAge);
 	}
 	User(std::string newName, int newAge, std::string newEmailAddress, Concession newConcession) {
 		setName(newName);
@@ -156,6 +170,34 @@ public:
 		else {
 			return false;
 		}
+	}
+	//operator []
+	char& operator[](int index) {
+		if (index < 0 || index > strlen(this->nameUser)) {
+			throw std::exception("The index you are trying to provide for the Array is invalid!");
+		}
+		return this->nameUser[index];
+	}
+	//cast operator
+	operator int() const {
+		int c0 = static_cast<int>(this->birthYear[0]);
+		int c1 = static_cast<int>(this->birthYear[1]);
+		int c2 = static_cast<int>(this->birthYear[2]);
+		int c3 = static_cast<int>(this->birthYear[3]);
+		return c0 * 1000 + c1 * 100 + c2 * 10 + c3;
+	}
+	//operator ==
+	bool operator==(User& newUser) {
+		if (this->name == newUser.name) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	//oprator !
+	bool operator!() {
+		return !this->isAdult;
 	}
 };
 

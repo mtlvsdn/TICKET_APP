@@ -18,6 +18,7 @@ private:
 	std::string time = "20:00";
 	char year[5] = "2010";
 	const int eventPrice = 0;
+	bool isBigEvent = false;
 
 	//STATIC ATTRIBUTES
 	static const int MIN_NAME_LENGTH = 3;
@@ -87,6 +88,11 @@ public:
 			throw std::exception("Price cannot have a negative value!");
 		}
 	}
+	void setBigEvent() {
+		if (this->numberOfRows > 10) {
+			this->isBigEvent = true;
+		}
+	}
 	//GETTERS LOCATION
 	EventType getEventType() {
 		return this->eventType;
@@ -120,6 +126,9 @@ public:
 	int getEventPrice() const {
 		return this->eventPrice;
 	}
+	bool getBigEvent() {
+		return this->isBigEvent;
+	}
 	//CONSTRUCTOR
 	Event(): eventPrice(100) {
 		this->setEventType(EventType::Movie);
@@ -128,6 +137,17 @@ public:
 		this->setName("Name Event");
 		this->setDate("20/01/2011");
 		this->setTime("20:00");
+	}
+	Event(EventType newEventType, std::string newName) {
+		setEventType(newEventType);
+		setName(newName);
+	}
+	Event(EventType newEventType, int newNumberOfRows, int newNumberOfSeatsPerRow, std::string newName) {
+		setEventType(newEventType);
+		setNumberOfRows(newNumberOfRows);
+		setNumberOfSeatsPerRow(newNumberOfSeatsPerRow);
+		setName(newName);
+		setBigEvent();
 	}
 	//COPY CONSTRUCTOR
 	Event(const Event& newEvent) {
@@ -180,7 +200,29 @@ public:
 			return false;
 		}
 	}
-	
+	//operator []
+	char& operator[](int index) {
+		if (index < 0 || index > strlen(this->nameEvent)) {
+			throw std::exception("The index of the Array is invalid!");
+		}
+		return this->nameEvent[index];
+	}
+	//cast operator
+	operator int() const {
+		int c0 = static_cast<int>(this->year[0]);
+		int c1 = static_cast<int>(this->year[1]);
+		int c2 = static_cast<int>(this->year[2]);
+		int c3 = static_cast<int>(this->year[3]);
+		return c0 * 1000 + c1 * 100 + c2 * 10 + c3;
+	}
+	//operator++
+	void operator++() {
+		this->numberOfRows++;
+	}
+	//operator!
+	bool operator!() {
+		return !this->isBigEvent;
+	}
 };
 
 //operator << (cout)

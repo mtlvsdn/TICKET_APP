@@ -6,9 +6,10 @@ class Ticket {
 	ZoneType zone = ZoneType::Category1;
 	int numberOfDigitsInID = 10;
 	char* uniqueID = nullptr;
-	int rowNumber = 1;
+	int rowNumber = 2;
 	int seatNumber = 1;
 	char personalisedMessage[30] = "Have fun at your event!";
+	bool isFirstRow = false;
 
 	//STATIC ATTRIBUTES
 	static const int MIN_ID_LENGTH = 10;
@@ -65,6 +66,9 @@ public:
 		}
 		strcpy_s(this->personalisedMessage, strlen(newPersonalisedMessage) + 1, newPersonalisedMessage);
 	}
+	void setFirstRow() {
+		this->isFirstRow = true;
+	}
 	//GETTERS
 	ZoneType getZone() {
 		return this->zone;
@@ -87,6 +91,9 @@ public:
 	}
 	const char* getPersonalisedMessage() const {
 		return this->personalisedMessage;
+	}
+	bool getIsFirstRow() {
+		return this->isFirstRow;
 	}
 	//STATIC ATTRIBUTES
 	static const int MIN_PRICE = 0;
@@ -112,7 +119,7 @@ public:
 	void generateTicketAsTxt() {
 		//will allow the generation of nominal tickets according to the
 		//  desired characteristics(ex: VIP, lawn, tribune, boxes, etc.) .)
-		 
+
 	}
 	//CONSTRUCTOR
 	Ticket() {
@@ -121,6 +128,11 @@ public:
 		generateTicketID();
 		this->rowNumber = 1;
 		this->seatNumber = 1;
+	}
+	Ticket(ZoneType newZone, int newNumberOfDigitsInID, char* newUniqueID) {
+		setZone(newZone);
+		setNumberOfDigitsInID(newNumberOfDigitsInID);
+		setUniqueID(newUniqueID);
 	}
 	Ticket(ZoneType newZone, int newNumberOfDigitsInID, int newRowNumber, int newSeatNumber) {
 		this->zone = newZone;
@@ -168,6 +180,29 @@ public:
 	//operator ++
 	void operator++() {
 		this->seatNumber++;
+	}
+	//operator []
+	char& operator[](int index) {
+		if (index < 0 || index > strlen(this->uniqueID)) {
+			throw std::exception("The index you are trying to provide for the array is invalid");
+		}
+		return this->uniqueID[index];
+	}
+	//cast operator
+	operator std::string() const {
+		return std::to_string(this->numberOfDigitsInID);
+	}
+	//operator ==
+	bool operator==(Ticket& newTicket) {
+		if (strcmp(this->uniqueID, newTicket.uniqueID)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	bool operator!() {
+		return !this->isFirstRow;
 	}
 };
 
