@@ -13,8 +13,10 @@ private:
 	int numberfOfSeatsPerRow = 0;
 	//CHARACTERISTICS OF THE EVENT
 	std::string name = "Event Name";
+	char* nameEvent = nullptr;
 	std::string date = "20/01/2011";
 	std::string time = "20:00";
+	char year[5] = "2010";
 	const int eventPrice = 0;
 
 	//STATIC ATTRIBUTES
@@ -46,6 +48,16 @@ public:
 		}
 		this->name = newName;
 	}
+	void setNameEvent(char* newNameEvent) {
+		if (this->nameEvent != NULL) {
+			delete[] this->nameEvent;
+			this->nameEvent = new char[strlen(newNameEvent) + 1];
+		}
+		strcpy_s(this->nameEvent, strlen(newNameEvent) + 1, newNameEvent);
+		/*for (int i = 0; i < strlen(newNameEvent); i++) {
+			this->nameEvent[i] = newNameEvent[i];
+		}*/
+	}
 	void setDate(std::string newDate) {
 		if (newDate.size() != DATE_LENGTH) {
 			throw std::exception("Date length is invalid!");
@@ -57,6 +69,18 @@ public:
 			throw std::exception("Time length is invalid!");
 		}
 		this->time = newTime;
+	}
+	void setYear(const char* newYear) {
+		//char newArray[5];
+		//if (this->year != NULL) {
+		//	delete[] this->year;
+		//}
+		if (strlen(newYear) > 5) {
+			throw std::exception("The length of the year is to high!");
+		}
+		for (int i = 0; i < 5; i++) {
+			this->year[i] = newYear[i];
+		}
 	}
 	void setEventPrice(const int newEventPrice) {
 		if (newEventPrice < 0) {
@@ -77,11 +101,21 @@ public:
 	std::string getName() {
 		return this->name;
 	}
+	char* getNameEvent() {
+		char* newArray = new char[strlen(this->nameEvent) + 1];
+		for (int i = 0; i < strlen(this->nameEvent) + 1; i++) {
+			newArray[i] = this->nameEvent[i];
+		}
+		return newArray;
+	}
 	std::string getDate() {
 		return this->date;
 	}
 	std::string getTime() {
 		return this->time;
+	}
+	const char* getYear() const {
+		return this->year;
 	}
 	int getEventPrice() const {
 		return this->eventPrice;

@@ -8,6 +8,7 @@ class Ticket {
 	char* uniqueID = nullptr;
 	int rowNumber = 1;
 	int seatNumber = 1;
+	char personalisedMessage[30] = "Have fun at your event!";
 
 	//STATIC ATTRIBUTES
 	static const int MIN_ID_LENGTH = 10;
@@ -58,6 +59,12 @@ public:
 		}
 		this->seatNumber = newSeat;
 	}
+	void setPersonalisedMessage(const char* newPersonalisedMessage) {
+		if (strlen(newPersonalisedMessage) > 30) {
+			throw std::exception("Message is too long!");
+		}
+		strcpy_s(this->personalisedMessage, strlen(newPersonalisedMessage) + 1, newPersonalisedMessage);
+	}
 	//GETTERS
 	ZoneType getZone() {
 		return this->zone;
@@ -77,6 +84,9 @@ public:
 	}
 	int getSeatNumber() {
 		return this->seatNumber;
+	}
+	const char* getPersonalisedMessage() const {
+		return this->personalisedMessage;
 	}
 	//STATIC ATTRIBUTES
 	static const int MIN_PRICE = 0;

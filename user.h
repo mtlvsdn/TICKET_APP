@@ -5,7 +5,9 @@ enum class Concession { Standard, Teen = 30, Retired = 40, Child = 50 };
 class User {
 private:
 	std::string name = "John Doe";
+	char* nameUser = nullptr;
 	int age = 23;
+	char birthYear[5] = "2000";
 	std::string emailAddress = "john.doe23@gmail.com";
 	Concession concession = Concession::Standard;
 	double price = 100;
@@ -22,11 +24,26 @@ public:
 		}
 		this->name = newName;
 	}
+	void setNameUser(char* newNameUser) {
+		if (this->nameUser != NULL) {
+			delete[] this->nameUser;
+			this->nameUser = new char[strlen(newNameUser) + 1];
+		}
+		strcpy_s(this->nameUser, strlen(newNameUser), newNameUser);
+	}
 	void setAge(int newAge) {
 		if (newAge < MIN_AGE) {
 			throw std::exception("Age is too small!");
 		}
 		this->age = newAge;
+	}
+	void setBirthYear(const char* newBirthYear) {
+		if (strlen(newBirthYear) > 5) {
+			throw std::exception("The length of the year is to high!");
+		}
+		for (int i = 0; i < 5; i++) {
+			this->birthYear[i] = newBirthYear[i];
+		}
 	}
 	void setEmailAddress(std::string newEmailAddress) {
 		//validation
@@ -54,11 +71,19 @@ public:
 		
 	}
 	//GETTERS
-	std::string getrName() {
+	std::string getName() {
 		return this->name;
+	}
+	char* getNameUser() {
+		char* newArray = new char[strlen(this->nameUser) + 1];
+		strcpy_s(newArray, strlen(this->nameUser) + 1, this->nameUser);
+		return newArray;
 	}
 	int getAge() {
 		return this->age;
+	}
+	const char* getBirthYear() const {
+		return this->birthYear;
 	}
 	std::string getEmailAddress() {
 		return this->emailAddress;
