@@ -166,6 +166,11 @@ public:
 	int maximumNumberOfSeats() {
 		return getNumberOfRows() * getNumberOfSeatsPerRow();
 	}
+	void isTheEventBig() {
+		if (isBigEvent == true) {
+			std::cout << "This is considered a big event!. A big event is one with more than 100 guests. Please be aware of thiefs at such big events and always pay attention at your belongings!";
+		}
+	}
 	//OVERLOADING OPERATORS (each class 2 different overloaded operators)
 	//operator =
 	Event operator=(const Event& source) {
