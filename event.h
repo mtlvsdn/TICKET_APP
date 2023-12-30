@@ -12,6 +12,8 @@ private:
 	int numberOfRows = 0;
 	int numberfOfSeatsPerRow = 0;
 	//CHARACTERISTICS OF THE EVENT
+	std::string location = "Bucharest";
+	std::string venue = "Romexpo";
 	std::string name = "Event Name";
 	char* nameEvent = nullptr;
 	std::string date = "20/01/2011";
@@ -43,6 +45,18 @@ public:
 		this->numberfOfSeatsPerRow = newNumberOfSeatsPerRow;
 	}
 	//SETTERS CHARACTERISTICS OF THE EVENT
+	void setLocation(std::string newlocation) {
+		if (newlocation.size() > 20) {
+			throw std::exception("Name of the location is too long!");
+		}
+		this->location = newlocation;
+	}
+	void setVenue(std::string newVenue) {
+		if (newVenue.size() > 30) {
+			throw std::exception("Name of the venue is too long!");
+		}
+		this->location = newVenue;
+	}
 	void setName(std::string newName) {
 		if (newName.size() < MIN_NAME_LENGTH) {
 			throw std::exception("Name length is too short!");
@@ -104,6 +118,12 @@ public:
 		return this->numberfOfSeatsPerRow;
 	}
 	//GETTERS CHARACTERISTICS OF THE EVENT
+	std::string getLocation() {
+		return this->location;
+	}
+	std::string getVenue() {
+		return this->venue;
+	}
 	std::string getName() {
 		return this->name;
 	}
@@ -134,6 +154,8 @@ public:
 		this->setEventType(EventType::Movie);
 		this->setNumberOfRows(20);
 		this->setNumberOfSeatsPerRow(10);
+		this->setLocation("Bucharest");
+		this->setVenue("Romexpo");
 		this->setName("Name Event");
 		this->setDate("20/01/2011");
 		this->setTime("20:00");

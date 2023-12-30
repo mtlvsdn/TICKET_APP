@@ -1,0 +1,90 @@
+Bohemian Rhapsody, New York, Radio City Music Hall, 20/08/2023, 18:00
+The Sound of Music, London, Royal Albert Hall, 21/08/2023, 19:30
+Les Misérables, Paris, Théâtre du Châtelet, 22/08/2023, 20:15
+Mamma Mia!, Berlin, Stage Theater des Westens, 23/08/2023, 21:00
+Phantom of the Opera, Sydney, Capitol Theatre, 24/08/2023, 22:00
+Hamilton, Chicago, CIBC Theatre, 25/08/2023, 17:45
+Cats, Tokyo, Imperial Theatre, 26/08/2023, 16:30
+The Lion King, Rome, Teatro della Luna, 27/08/2023, 19:20
+Chicago, Los Angeles, Pantages Theatre, 28/08/2023, 18:10
+Wicked, Toronto, Ed Mirvish Theatre, 29/08/2023, 20:40
+Grease, Madrid, Nuevo Teatro Alcalá, 30/08/2023, 22:30
+West Side Story, Dubai, Dubai Opera, 31/08/2023, 19:15
+The Phantom of the Opera, Istanbul, Zorlu Performing Arts Center, 01/09/2023, 18:30
+Cinderella, Buenos Aires, Teatro Colón, 02/09/2023, 17:20
+Rent, Vienna, Ronacher Theater, 03/09/2023, 20:10
+Sweeney Todd, New York, Barrow Street Theatre, 04/09/2023, 19:00
+The Book of Mormon, Paris, Le Palace, 05/09/2023, 18:45
+Aida, Moscow, Bolshoi Theatre, 06/09/2023, 20:20
+The Wizard of Oz, Berlin, Admiralspalast, 07/09/2023, 19:15
+La La Land Live in Concert, Toronto, Sony Centre for the Performing Arts, 08/09/2023, 21:00
+Carmen, Sydney, Capitol Theatre, 09/09/2023, 18:30
+Hairspray, London, Shaftesbury Theatre, 10/09/2023, 20:15
+A Chorus Line, Chicago, Oriental Theatre, 11/09/2023, 21:00
+Annie, Los Angeles, Hollywood Pantages Theatre, 12/09/2023, 19:45
+The Nutcracker, Vienna, Wiener Staatsoper, 13/09/2023, 20:00
+Fiddler on the Roof, Madrid, Teatro Rialto, 14/09/2023, 18:00
+The Music Man, Istanbul, Harbiye Cemil Topuzlu Open-Air Theatre, 15/09/2023, 17:20
+Mary Poppins, Buenos Aires, Teatro Gran Rex, 16/09/2023, 22:00
+Singing in the Rain, Dubai, Dubai Opera, 17/09/2023, 19:15
+The King and I, Sydney, Capitol Theatre, 18/09/2023, 18:45
+The Phantom of the Opera, Rome, Teatro Sistina, 19/09/2023, 19:45
+Les Misérables, Madrid, Teatro Lope de Vega, 20/09/2023, 20:00
+Cats, Los Angeles, Pantages Theatre, 21/09/2023, 18:30
+The Lion King, Berlin, Stage Theater am Potsdamer Platz, 22/09/2023, 19:30
+Chicago, Paris, Théâtre Mogador, 23/09/2023, 20:15
+West Side Story, Vienna, Raimund Theater, 24/09/2023, 20:00
+Grease, Sydney, Capitol Theatre, 25/09/2023, 19:00
+The Wizard of Oz, London, Palladium Theatre, 26/09/2023, 18:45
+Rent, Toronto, Royal Alexandra Theatre, 27/09/2023, 22:30
+The Book of Mormon, Moscow, Moscow Operetta Theatre, 28/09/2023, 19:15
+Aida, New York, The Metropolitan Opera, 29/09/2023, 17:45
+Sweeney Todd, Chicago, The Den Theatre, 30/09/2023, 16:30
+La La Land Live in Concert, Paris, L'Olympia, 01/10/2023, 21:00
+Carmen, Dubai, Dubai Opera, 02/10/2023, 18:30
+Hairspray, Buenos Aires, Teatro Ópera, 03/10/2023, 19:20
+The Sound of Music, Vienna, Volksoper, 04/10/2023, 20:10
+Mamma Mia!, Sydney, Capitol Theatre, 05/10/2023, 17:20
+Hamilton, Madrid, Teatro Victoria, 06/10/2023, 21:00
+Annie, London, Piccadilly Theatre, 07/10/2023, 19:30
+The Music Man, Istanbul, Zorlu Center PSM, 08/10/2023, 20:15
+The King and I, Los Angeles, Ahmanson Theatre, 09/10/2023, 18:45
+Mary Poppins, Paris, Théâtre Mogador, 10/10/2023, 19:00
+Fiddler on the Roof, Toronto, Princess of Wales Theatre, 11/10/2023, 20:30
+The Nutcracker, Berlin, Komische Oper Berlin, 12/10/2023, 18:00
+The Music Man, Moscow, Tchaikovsky Concert Hall, 13/10/2023, 17:45
+Mary Poppins, Dubai, Dubai Opera, 14/10/2023, 21:00
+The Phantom of the Opera, Madrid, Teatro Coliseum, 15/10/2023, 19:15
+The Sound of Music, Sydney, Capitol Theatre, 16/10/2023, 20:00
+Wicked, London, Apollo Victoria Theatre, 17/10/2023, 18:30
+Cats, New York, Neil Simon Theatre, 18/10/2023, 19:45
+Mamma Mia!, Vienna, Ronacher Theater, 19/10/2023, 20:15
+Chicago, Berlin, Stage Theater des Westens, 20/10/2023, 18:30
+Hamilton, Los Angeles, Hollywood Pantages Theatre, 21/10/2023, 19:30
+The Lion King, New York, Minskoff Theatre, 22/10/2023, 20:00
+Les Misérables, Paris, Salle Pleyel, 23/10/2023, 19:00
+Phantom of the Opera, Tokyo, Tokyo International Forum, 24/10/2023, 20:20
+Rent, Sydney, Capitol Theatre, 25/10/2023, 17:45
+Sweeney Todd, London, Adelphi Theatre, 26/10/2023, 21:00
+Cinderella, Madrid, Teatro Lope de Vega, 27/10/2023, 19:15
+Grease, Chicago, Cadillac Palace Theatre, 28/10/2023, 20:30
+The Book of Mormon, Istanbul, Zorlu Center PSM, 29/10/2023, 18:45
+Wicked, Buenos Aires, Teatro Ópera, 30/10/2023, 19:20
+West Side Story, Moscow, Moscow Operetta Theatre, 31/10/2023, 20:00
+La La Land Live in Concert, Vienna, Wiener Stadthalle, 01/11/2023, 17:20
+The Music Man, Berlin, Admiralspalast, 02/11/2023, 18:10
+Carmen, Los Angeles, LA Opera, 03/11/2023, 19:00
+Aida, New York, The Met Cloisters, 04/11/2023, 21:15
+The Sound of Music, Paris, Théâtre de la Ville, 05/11/2023, 20:40
+Mary Poppins, Toronto, Princess of Wales Theatre, 06/11/2023, 18:00
+The King and I, Sydney, Capitol Theatre, 07/11/2023, 19:45
+The Wizard of Oz, Madrid, Teatro Coliseum, 08/11/2023, 20:15
+Annie, London, Piccadilly Theatre, 09/11/2023, 18:30
+Fiddler on the Roof, Tokyo, Tokyo Theatre Orb, 10/11/2023, 22:00
+The Music Man, Vienna, Raimund Theater, 11/11/2023, 19:15
+Cats, Berlin, Theater des Westens, 12/11/2023, 20:30
+Mamma Mia!, Sydney, Capitol Theatre, 13/11/2023, 19:45
+Chicago, Los Angeles, Pantages Theatre, 14/11/2023, 17:45
+Hamilton, New York, Richard Rodgers Theatre, 15/11/2023, 21:00
+The Lion King, Paris, Théâtre Mogador, 16/11/2023, 18:45
+Les Misérables, Madrid, Teatro Lope de Vega, 17/11/2023, 19:30

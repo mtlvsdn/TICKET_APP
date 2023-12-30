@@ -81,3 +81,15 @@ std::istream& operator>>(std::istream& console, Car& newCar) {
 	char year[5] = "2010";
 	const int eventPrice = 0;
 	bool isBigEvent = false;
+
+	EventType eventType = EventType::Movie;
+	int numberOfRows = 0;
+	int numberfOfSeatsPerRow = 0;
+	//CHARACTERISTICS OF THE EVENT
+	std::string name = "Event Name";
+	char* nameEvent = nullptr;
+	std::string date = "20/01/2011";
+	std::string time = "20:00";
+	char year[5] = "2010";
+	const int eventPrice = 0;
+	bool isBigEvent = false;
