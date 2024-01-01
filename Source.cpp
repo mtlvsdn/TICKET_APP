@@ -114,62 +114,45 @@ void menu() {
 		choices.close();
 		file.close();
 
+		//std::cout << std::endl << number << std::endl;
+		int ok1 = 1;
 		file.open("choices.txt");
-		while (true) {
-			std::cout << "	For which of the following do you want to buy a ticket?: ";
-			std::cout << std::endl << std::endl;
-			std::cout << "	-> ";
-			std::cin >> choice;
-			while (true) {
-				if (!(choice > number || choice < 1)) {
-					break;
-				}
+		
+		std::cout << "	For which of the following do you want to buy a ticket?: ";
+		std::cout << std::endl << std::endl;
+		std::cout << "	-> ";
+		std::cin >> choice;
+		while (ok1 == 1) {
+			ok1 = 0;
+			if (choice >= number || choice < 1) {
+				ok1 = 1;
+				std::cout << "	The number you entered is incorrect. Please try choosing a valid option: ";
 				std::cin >> choice;
 			}
-			for (int i = 0; i < choice; i++) {
-				std::getline(file, line);
-				std::stringstream ss(line);
-
-				std::string tk;
-				std::vector<std::string> tks; // Vector to store tokens
-				tks.clear();
-
-				while (std::getline(ss, tk, ',')) {
-					tks.push_back(tk); // Store each token in the vector
-				}
-				myEvent.setName(tks[0]);
-				myEvent.setLocation(tks[1]);
-				myEvent.setVenue(tks[2]);
-				myEvent.setDate(tks[3]);
-				myEvent.setDate(tks[4]);
-				int myIntVariable;
-				if (typeid(tks[5]) == typeid(std::string)) {
-					// Convert the int to string using std::to_string
-					myIntVariable = std::stoi(tks[5]);
-					myEvent.setNumberOfRows(myIntVariable);
-					if (typeid(tks[6]) == typeid(std::string)) {
-						// Convert the int to string using std::to_string
-						myIntVariable = std::stoi(tks[6]);
-					}
-					myEvent.setNumberOfSeatsPerRow(myIntVariable);
-					if (typeid(tks[7]) == typeid(std::string)) {
-						// Convert the int to string using std::to_string
-						myIntVariable = std::stoi(tks[7]);
-						myEvent.setEventPrice(myIntVariable);
-					}
-					std::cout << myEvent.getName() << std::endl;
-					std::cout << myEvent.getLocation() << std::endl;
-					std::cout << myEvent.getVenue() << std::endl;
-					std::cout << myEvent.getDate() << std::endl;
-					std::cout << myEvent.getTime() << std::endl;
-					std::cout << myEvent.getNumberOfRows() << std::endl;
-					std::cout << myEvent.getNumberOfSeatsPerRow() << std::endl;
-					std::cout << myEvent.getEventPrice() << std::endl;
-				}
-			}
-
 		}
-		
+		int i = 0;
+		while (i < choice) {
+			std::getline(file, line);
+			i++;
+		}
+		std::stringstream ss(line);
+		std::string tk;
+		std::vector<std::string> tks; // Vector to store tokens
+
+		while (std::getline(ss, tk, ',')) {
+			tks.push_back(tk); // Store each token in the vector
+		}
+
+		for (int j = 0; j < tks.size(); j++) {
+			std::cout << " " << tks[j];
+		}
+
+		std::cout << std::endl << tks[0];
+		int tks6 = std::stoi(tks[6]);
+		int tks7 = std::stoi(tks[7]);
+		int tks8 = std::stoi(tks[8]);
+		Event event(eventVar, tks[1], tks[2], tks[3], tks[4], tks[5], tks6, tks7, tks8);
+		std::cout << event;
 
 	}
 	else if (choice == 2) {

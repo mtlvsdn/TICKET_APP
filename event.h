@@ -46,13 +46,13 @@ public:
 	}
 	//SETTERS CHARACTERISTICS OF THE EVENT
 	void setLocation(std::string newlocation) {
-		if (newlocation.size() > 20) {
+		if (newlocation.size() > 50) {
 			throw std::exception("Name of the location is too long!");
 		}
 		this->location = newlocation;
 	}
 	void setVenue(std::string newVenue) {
-		if (newVenue.size() > 30) {
+		if (newVenue.size() > 50) {
 			throw std::exception("Name of the venue is too long!");
 		}
 		this->location = newVenue;
@@ -74,13 +74,13 @@ public:
 		}*/
 	}
 	void setDate(std::string newDate) {
-		if (newDate.size() != DATE_LENGTH) {
+		if (newDate.size() > DATE_LENGTH + 1) {
 			throw std::exception("Date length is invalid!");
 		}
 		this->date = newDate;
 	}
 	void setTime(std::string newTime) {
-		if (newTime.size() != 5) {
+		if (newTime.size() >= 6) {
 			throw std::exception("Time length is invalid!");
 		}
 		this->time = newTime;
@@ -101,6 +101,7 @@ public:
 		if (newEventPrice < 0) {
 			throw std::exception("Price cannot have a negative value!");
 		}
+		//this->eventPrice = newEventPrice;
 	}
 	void setBigEvent() {
 		if (this->numberOfRows > 10) {
@@ -170,6 +171,17 @@ public:
 		setNumberOfSeatsPerRow(newNumberOfSeatsPerRow);
 		setName(newName);
 		setBigEvent();
+	}
+	Event(EventType newEventType, std::string newName, std::string newLocation, std::string newVenue, std::string newDate, std::string newTime, int newNumberOfRows, int newNumberOfSeatsPerRow, int newEventPrice) : eventPrice(newEventPrice) {
+		setEventType(newEventType);
+		setName(newName);
+		setLocation(newLocation);
+		setVenue(newVenue);
+		setDate(newDate);
+		setVenue(newVenue);
+		setNumberOfRows(newNumberOfRows);
+		setNumberOfSeatsPerRow(newNumberOfSeatsPerRow);
+		//setEventPrice(newEventPrice);
 	}
 	//COPY CONSTRUCTOR
 	Event(const Event& newEvent) {

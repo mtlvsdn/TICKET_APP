@@ -93,3 +93,30 @@ std::istream& operator>>(std::istream& console, Car& newCar) {
 	char year[5] = "2010";
 	const int eventPrice = 0;
 	bool isBigEvent = false;
+
+	/*myEvent.setLocation(tks[1]);
+			myEvent.setVenue(tks[2]);
+			myEvent.setDate(tks[3]);
+			myEvent.setTime(tks[4]);*/
+	//	myIntVariable = std::stoi(tks[5]);
+	//	myIntVariable = std::stoi(tks[6]);
+	//	myIntVariable = std::stoi(tks[7]);
+
+
+	Home Alone 2, Bucharest, 
+	Afi Palace Cotroceni, 20/08/2023, 18:00, 7, 8, 20,
+
+
+Event(EventType newEventType, std::string newName,
+std::string newLocation, std::string newVenue, 
+std::string newDate, std::string newTime, int newNumberOfRows, 
+int newNumberOfSeatsPerRow) {
+
+setEventType(newEventType);
+setName(newName);
+setLocation(newLocation);
+setVenue(newVenue);
+setDate(newDate);
+setVenue(newVenue);
+setNumberOfRows(newNumberOfRows);
+setNumberOfSeatsPerRow(newNumberOfSeatsPerRow);

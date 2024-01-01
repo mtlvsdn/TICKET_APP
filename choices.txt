@@ -1,3 +1,4 @@
-1,Gladiator, Rome, Cinema Adriano, 27/08/2023, 19:20, 9, 10, 59,
-2,Gladiator, Paris, UGC Normandie, 20/09/2023, 18:30, 2, 3, 90,
-3,Gladiator, New York, AMC Loews Lincoln Square, 19/10/2023, 19:45, 43, 54, 65,
+1,Cats, Tokyo, Imperial Theatre, 26/08/2023, 16:30,
+2,Cats, Los Angeles, Pantages Theatre, 21/09/2023, 18:30,
+3,Cats, New York, Neil Simon Theatre, 18/10/2023, 19:45,
+4,Cats, Berlin, Theater des Westens, 12/11/2023, 20:30,
