@@ -120,3 +120,20 @@ setDate(newDate);
 setVenue(newVenue);
 setNumberOfRows(newNumberOfRows);
 setNumberOfSeatsPerRow(newNumberOfSeatsPerRow);
+
+std::string name = "John Doe";
+char* nameUser = nullptr;
+int age = 17;
+char birthYear[5] = "2000";
+std::string emailAddress = "john.doe23@gmail.com";
+Concession concession = Concession::Standard;
+double price = 100;
+bool isAdult = false;
+
+ZoneType zone = ZoneType::Category1;
+	int numberOfDigitsInID = 10;
+	char* uniqueID = nullptr;
+	int rowNumber = 2;
+	int seatNumber = 1;
+	char personalisedMessage[30] = "Have fun at your event!";
+	bool isFirstRow = false;

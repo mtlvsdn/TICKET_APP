@@ -98,6 +98,9 @@ public:
 	Concession getConcession() {
 		return this->concession;
 	}
+	double getPrice() {
+		return this->price;
+	}
 	bool getAdult() {
 		return this->isAdult;
 	}
@@ -127,9 +130,9 @@ public:
 
 	}
 	//OTHER METHODS
-	int calculateTicketPrice(Event newEvent) {
-		int newPrice = newEvent.getEventPrice() * (int(this->concession) / 100);
-		return newPrice;
+	void calculateTicketPrice(Event newEvent) {
+		this->price = newEvent.getEventPrice() * (int(this->concession) / 100);
+		//return newPrice;
 	}
 	float howMuchConcessionDoIHave() {
 		if (this->age < 18) {
