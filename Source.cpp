@@ -64,6 +64,7 @@ User createUser() {
 
 Ticket createSeat(Event event) {
 	Ticket ticket;
+	//std::cout << std::endl << std::endl << ticket << std::endl;
 	system("cls");
 	std::string zoneType;
 	ZoneType zone;
@@ -111,13 +112,14 @@ Ticket createSeat(Event event) {
 	std::cin >> personalisedMessage;
 	ticket.setZone(zone);
 	ticket.generateTicketID();
-	/*ticket.setRowNumber(rowNumber);
+	ticket.setRowNumber(rowNumber);
 	ticket.setSeatNumber(seatNumber);
 	ticket.setPersonalisedMessage(personalisedMessage);
 	if (rowNumber == 1) {
 		ticket.setFirstRow();
-	}*/
-	std::cout << std::endl << std::endl << ticket << std::endl;
+	}
+	//std::cout << std::endl << std::endl << ticket << std::endl;
+	//std::cout << std::endl << std::endl << ticket.getUniqueID();
 	return ticket;
 }
 
@@ -171,6 +173,9 @@ void createTicket(Event event, User user, Ticket ticket) {
 		stringZone = "Tribune";
 	}
 	outFile << std::endl << "Category: " << stringZone;
+	char* myChar = new char[ticket.getNumberOfDigitsInID() + 1];
+	/*strcpy_s(myChar, ticket.getNumberOfDigitsInID() + 1, ticket.getUniqueID());
+	outFile << std::endl << "Ticket ID: " << myChar;*/
 	outFile << std::endl << "Ticket ID: " << ticket.getUniqueID();
 	outFile << std::endl << "Row Number: " << ticket.getRowNumber();
 	outFile << std::endl << "Seat Number: " << ticket.getSeatNumber();
@@ -325,11 +330,11 @@ void menu() {
 
 
 		//WHERE THE MAGIC HAPPENS
-		//User user = createUser();
-		//user.calculateTicketPrice(event);
+		User user = createUser();
+		user.calculateTicketPrice(event);
 		Ticket ticket;
 		ticket = createSeat(event);
-		//createTicket(event, user, ticket);
+		createTicket(event, user, ticket);
 	}
 	else if (choice == 2) {
 		ok2 = 1;

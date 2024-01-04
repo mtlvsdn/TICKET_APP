@@ -41,15 +41,18 @@ public:
 				throw std::exception("ID cannot be set because it is not unique!");
 			}
 		}*/
-		char* newArray = nullptr;
-		if (newArray != nullptr) {
-			delete[] newArray;
-		}
-		newArray = new char[strlen(newUniqueID) + 1];
-		for (int i = 0; i <= strlen(newUniqueID); i++) {
+		char* newArray = new char[this->numberOfDigitsInID + 1];
+		for (int i = 0; i < this->numberOfDigitsInID; i++) {
 			newArray[i] = newUniqueID[i];
 		}
+		//strcpy_s(this->uniqueID, static_cast<rsize_t>(this->numberOfDigitsInID) + 1, newArray);
+		delete[] this->uniqueID;
 		this->uniqueID = newArray;
+		delete[] newArray;
+		std::cout << std::endl;
+		for (int i = 0; i < this->numberOfDigitsInID + 1; i++) {
+			std::cout << this->uniqueID[i];
+		}
 		//file.close();
 	}
 	void setRowNumber(int newRow) {
@@ -80,12 +83,17 @@ public:
 	int getNumberOfDigitsInID() {
 		return this->numberOfDigitsInID;
 	}
-	char* getUniqueID() {
-		char* newArray = new char[static_cast<size_t>(this->numberOfDigitsInID) + 1];
-		for (int i = 0; i < this->numberOfDigitsInID; i++) {
-			newArray[i] = this->uniqueID[i];
-		}
-		return newArray;
+	char* getUniqueID() const {
+		//char* newArray = new char[static_cast<size_t>(this->numberOfDigitsInID) + 1];
+		////char* newArray = new char[this->numberOfDigitsInID + 1];
+		//for (int i = 0; i < this->numberOfDigitsInID; i++) {
+		//	newArray[i] = this->uniqueID[i];
+		//	std::cout << std::endl << newArray[i] << " ";
+		//}
+		//std::cout << std::endl << "DISPLAY THIS MESSSAGE";
+		//return newArray;
+		////return this->uniqueID;
+		return this->uniqueID;
 	}
 	int getRowNumber() {
 		return this->rowNumber;
@@ -114,25 +122,43 @@ public:
 		}
 		this->setNumberOfDigitsInID(newNumberOfDigits);
 
+		std::string myString = std::to_string(newUniqueID);
+		const char* myChar = myString.c_str();
+		char* nonConstChar = const_cast<char*>(myChar);
 
-		//MEMORY ALLOCATION
-		char* newArray = nullptr;// = new char[newNumberOfDigits + 1];
-		if (newArray != nullptr) {
-			delete[] newArray;
-		}
-		newArray = new char[newNumberOfDigits + 1];
-		for (int i = 0; i < newNumberOfDigits; i++) {
-			newArray[i] = static_cast<char>(newUniqueID % 10) +'0';
-			newUniqueID /= 10;
-		}
-		newArray[newNumberOfDigits] = '\0';
-		std::cout << std::endl << std::endl;
-		for (int i = 0; i < newNumberOfDigits; i++) {
-			std::cout << newArray[i] << " ";
-		}
-		std::cout << std::endl;
-		//this->setUniqueID(newArray);
-		delete[] newArray;
+		this->setUniqueID(nonConstChar);
+		/*std::cout << std::endl << std::endl << "THIS IS A MESSAGE";
+		for (int j = 0; j < this->numberOfDigitsInID; j++) {
+			std::cout << nonConstChar[j];
+		}*/
+
+
+		/*const char* constString = "Hello, World!";
+		char* nonConstString = const_cast<char*>(constString);
+		nonConstString[0] = 'h';*/
+
+		/*long long myNumber = 123456789012345LL;
+		std::string myString = std::to_string(myNumber);
+		const char* myCharPointer = myString.c_str();*/
+
+		////MEMORY ALLOCATION
+		//char* newArray = nullptr;// = new char[newNumberOfDigits + 1];
+		//if (newArray != nullptr) {
+		//	delete[] newArray;
+		//}
+		//newArray = new char[newNumberOfDigits + 1];
+		//for (int i = 0; i < newNumberOfDigits; i++) {
+		//	newArray[i] = static_cast<char>(newUniqueID % 10) +'0';
+		//	newUniqueID /= 10;
+		//}
+		//newArray[newNumberOfDigits] = '\0';
+		//std::cout << std::endl << std::endl;
+		///*for (int i = 0; i < newNumberOfDigits; i++) {
+		//	std::cout << newArray[i] << " ";
+		//}*/
+		//std::cout << std::endl;
+		////this->setUniqueID(newArray);
+		//delete[] newArray;
 	}
 	void generateTicketAsTxt() {
 		//will allow the generation of nominal tickets according to the
@@ -177,7 +203,7 @@ public:
 	Ticket operator=(const Ticket& source) {
 		this->zone = source.zone;
 		this->numberOfDigitsInID = source.numberOfDigitsInID;
-		this->setUniqueID(source.uniqueID);
+		this->uniqueID = source.uniqueID;
 		this->rowNumber = source.rowNumber;
 		this->seatNumber = source.seatNumber;
 		return source;
@@ -241,7 +267,8 @@ std::ostream& operator<<(std::ostream& console, const Ticket& newTicket) {
 	else if (newTicket.zone == ZoneType::Tribune) {
 		console << std::endl << "Zone: Tribune";
 	}
-	console << std::endl << "Ticket ID: " << newTicket.uniqueID;
+	//console << std::endl << "Ticket ID: " << newTicket.uniqueID;
+	console << std::endl << "Unique ID: " << newTicket.uniqueID;
 	console << std::endl << "Row Number: " << newTicket.rowNumber;
 	console << std::endl << "Seat Number: " << newTicket.seatNumber;
 	console << std::endl << "Personalised Message: " << newTicket.personalisedMessage;
