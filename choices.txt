@@ -1,4 +1,4 @@
-1,Cats, Tokyo, Imperial Theatre, 26/08/2023, 16:30,
-2,Cats, Los Angeles, Pantages Theatre, 21/09/2023, 18:30,
-3,Cats, New York, Neil Simon Theatre, 18/10/2023, 19:45,
-4,Cats, Berlin, Theater des Westens, 12/11/2023, 20:30,
+1,Titanic, Mumbai, PVR Citi Mall, 29/08/2023, 20:40, 24, 23, 90,
+2,Titanic, Sydney, Event Cinemas Sydney, 22/09/2023, 20:00, 24, 23, 29,
+3,Titanic, Sydney, Event Cinemas Bondi Junction, 21/10/2023, 18:30, 43, 54, 65,
+4,Titanic, London, Prince Charles Cinema, 17/11/2023, 21:00, 43, 54, 65,

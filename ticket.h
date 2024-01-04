@@ -33,20 +33,24 @@ public:
 		}
 	}
 	void setUniqueID(char* newUniqueID) {
-		std::ifstream file("allTicketIDs.txt");
+		/*std::ifstream file("allTicketIDs.txt");
 		std::string line;
 		while (file >> line) {
 			if (line == newUniqueID) {
 				file.close();
 				throw std::exception("ID cannot be set because it is not unique!");
 			}
+		}*/
+		char* newArray = nullptr;
+		if (newArray != nullptr) {
+			delete[] newArray;
 		}
-		char* newArray = new char[strlen(newUniqueID) + 1];
-		for (int i = 0; i < strlen(newUniqueID) + 1; i++) {
+		newArray = new char[strlen(newUniqueID) + 1];
+		for (int i = 0; i <= strlen(newUniqueID); i++) {
 			newArray[i] = newUniqueID[i];
 		}
 		this->uniqueID = newArray;
-		file.close();
+		//file.close();
 	}
 	void setRowNumber(int newRow) {
 		if (newRow < 1) {
@@ -109,12 +113,26 @@ public:
 			copy = copy / 10;
 		}
 		this->setNumberOfDigitsInID(newNumberOfDigits);
-		char* newArray = new char[newNumberOfDigits + 1];
+
+
+		//MEMORY ALLOCATION
+		char* newArray = nullptr;// = new char[newNumberOfDigits + 1];
+		if (newArray != nullptr) {
+			delete[] newArray;
+		}
+		newArray = new char[newNumberOfDigits + 1];
 		for (int i = 0; i < newNumberOfDigits; i++) {
-			newArray[i] = static_cast<char>(newUniqueID % 10) + '0';
+			newArray[i] = static_cast<char>(newUniqueID % 10) +'0';
 			newUniqueID /= 10;
 		}
-		this->setUniqueID(newArray);
+		newArray[newNumberOfDigits] = '\0';
+		std::cout << std::endl << std::endl;
+		for (int i = 0; i < newNumberOfDigits; i++) {
+			std::cout << newArray[i] << " ";
+		}
+		std::cout << std::endl;
+		//this->setUniqueID(newArray);
+		delete[] newArray;
 	}
 	void generateTicketAsTxt() {
 		//will allow the generation of nominal tickets according to the
@@ -139,13 +157,14 @@ public:
 		this->numberOfDigitsInID = newNumberOfDigitsInID;
 		generateTicketID();
 		this->rowNumber = newRowNumber;
-		this->seatNumber - newSeatNumber;
+		this->seatNumber = newSeatNumber;
 	}
 	//COPY CONSTRUCTOR
 	Ticket(const Ticket& newTicket) {
 		this->setZone(newTicket.zone);
 		this->setNumberOfDigitsInID(newTicket.numberOfDigitsInID);
-		generateTicketID();
+		this->uniqueID = newTicket.uniqueID;
+		//generateTicketID();
 		this->rowNumber = newTicket.rowNumber;
 		this->seatNumber = newTicket.seatNumber;
 	}
@@ -161,6 +180,7 @@ public:
 		this->setUniqueID(source.uniqueID);
 		this->rowNumber = source.rowNumber;
 		this->seatNumber = source.seatNumber;
+		return source;
 	}
 	//operator << (cout)
 	friend std::ostream& operator<<(std::ostream& console, const Ticket& newTicket);
@@ -208,9 +228,24 @@ public:
 
 //operator << (cout)
 std::ostream& operator<<(std::ostream& console, const Ticket& newTicket) {
+	//console << std::endl << "Zone: " << std::to_string(newTicket.zone);
+	if (newTicket.zone == ZoneType::Category1) {
+		console << std::endl << "Zone: Category1";
+	}
+	else if(newTicket.zone == ZoneType::Category2) {
+		console << std::endl << "Zone: Category2";
+	}
+	else if (newTicket.zone == ZoneType::VIP) {
+		console << std::endl << "Zone: VIP";
+	}
+	else if (newTicket.zone == ZoneType::Tribune) {
+		console << std::endl << "Zone: Tribune";
+	}
 	console << std::endl << "Ticket ID: " << newTicket.uniqueID;
 	console << std::endl << "Row Number: " << newTicket.rowNumber;
 	console << std::endl << "Seat Number: " << newTicket.seatNumber;
+	console << std::endl << "Personalised Message: " << newTicket.personalisedMessage;
+	console << std::endl << "Is the ticket in the first row?: " << newTicket.isFirstRow;
 	return console;
 }
 //operator >> (cin)

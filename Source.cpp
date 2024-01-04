@@ -20,21 +20,42 @@ int ok2 = 0;
 User createUser() {
 	User user;
 	system("cls");
-	char* name = nullptr;
+	//char* name = nullptr;
+	std::string name;
 	int age;
-	char birthyear[5];
+	char birthYear[5];
+	std::string stringBirthYear;
 	std::string emailAddress;
-	double price;
+	Concession concession;
 	std::cout << std::endl;
 	std::cout << "	Please fill in the details of the person attending the event";
 	std::cout << std::endl << std::endl << "	Name: ";
 	std::cin >> name;
+	std::getline(std::cin, name);
 	std::cout << std::endl << "	Age: ";
 	std::cin >> age;
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	std::cout << std::endl << "	Birth Year: ";
-	std::cin >> birthyear;
+	std::cin >> birthYear;
 	std::cout << std::endl << "	Email Address: ";
 	std::cin >> emailAddress;
+	if (age < 18) {
+		concession = Concession::Child;
+	}
+	else if (age <= 26) {
+		concession = Concession::Teen;
+	}
+	else if (age > 28 && age <= 64) {
+		concession = Concession::Standard;
+	}
+	else {
+		concession = Concession::Retired;
+	}
+	user.setName(name);
+	user.setAge(age);
+	user.setBirthYear(birthYear);
+	user.setEmailAddress(emailAddress);
+	user.setConcession(concession);
 	if (user.getAge() >= 18) {
 		user.setAdult();
 	}
@@ -52,16 +73,16 @@ Ticket createSeat(Event event) {
 	bool isFirstRow;
 	char* uniqueId = nullptr;
 	std::cout << std::endl << "	Please select your seating preferences: ";
-	std::cout << std::endl << std::endl << "	Category (Category 1, Category2, VIP, Tribune): ";
+	std::cout << std::endl << std::endl << "	Category (Category1, Category2, VIP, Tribune): ";
 	std::cin >> zoneType;
-	while (zoneType != "Category 1" && zoneType != "Category 2" && zoneType != "VIP" && zoneType != "Tribune") {
+	while (zoneType != "Category1" && zoneType != "Category2" && zoneType != "VIP" && zoneType != "Tribune") {
 		std::cout << "Please enter a valid category!: ";
 		std::cin >> zoneType;
 	}
-	if (zoneType == "Category 1") {
+	if (zoneType == "Category1") {
 		zone = ZoneType::Category1;
 	}
-	else if (zoneType == "Category 2") {
+	else if (zoneType == "Category2") {
 		zone = ZoneType::Category2;
 	}
 	else if (zoneType == "VIP") {
@@ -74,13 +95,14 @@ Ticket createSeat(Event event) {
 	std::cout << std::endl << "	Please choose your seats: ";
 	std::cout << std::endl << "	Row Number (There are a total of " + std::to_string(event.getNumberOfRows()) + " rows): ";
 	std::cin >> rowNumber;
+	//std::cout << std::endl << std::endl << event << std::endl;
 	std::cout << std::endl << "	Seat Number (There are a total of " + std::to_string(event.getNumberOfSeatsPerRow()) + " seats per each row): ";
 	std::cin >> seatNumber;
 	while (rowNumber * seatNumber > event.maximumNumberOfSeats()) {
 		std::cout << std::endl << "	The seat you selected does not exist.";
-		std::cout << std::endl << "Row Number: ";
+		std::cout << std::endl << "	Row Number: ";
 		std::cin >> rowNumber;
-		std::cout << std::endl << "Seat Number: ";
+		std::cout << std::endl << "	Seat Number: ";
 		std::cin >> seatNumber;
 	}
 	system("cls");
@@ -88,13 +110,14 @@ Ticket createSeat(Event event) {
 	std::cout << std::endl << "	Message: ";
 	std::cin >> personalisedMessage;
 	ticket.setZone(zone);
-	ticket.setUniqueID(uniqueId);
-	ticket.setRowNumber(rowNumber);
+	ticket.generateTicketID();
+	/*ticket.setRowNumber(rowNumber);
 	ticket.setSeatNumber(seatNumber);
 	ticket.setPersonalisedMessage(personalisedMessage);
 	if (rowNumber == 1) {
 		ticket.setFirstRow();
-	}
+	}*/
+	std::cout << std::endl << std::endl << ticket << std::endl;
 	return ticket;
 }
 
@@ -112,13 +135,13 @@ void createTicket(Event event, User user, Ticket ticket) {
 	outFile << std::endl << "Date: " << event.getDate();
 	outFile << std::endl << "Starting Time: " << event.getTime();
 
-	outFile << std::endl << "Details of the Attendee";
+	outFile << std::endl << std::endl << "Details of the Attendee";
 	outFile << std::endl << "Name of the attendee: " << user.getName();
 	outFile << std::endl << "Age: " << user.getAge();
 	outFile << std::endl << "Birth Year: " << user.getBirthYear();
 	outFile << std::endl << "Email Address: " << user.getEmailAddress();
 	outFile << std::endl << "Ticket type: " << user.getEmailAddress();
-	outFile << std::endl << "Price: " << user.getPrice();
+	//outFile << std::endl << "Price: " << event.getPrice();
 	outFile << std::endl << "Is the participant an adult?: ";
 	if (user.getAdult() == true) {
 		outFile << "YES";
@@ -133,8 +156,30 @@ void createTicket(Event event, User user, Ticket ticket) {
 		outFile << std::endl << attentionMessage;
 	}
 
-	outFile << std::endl << "Details of the seat: ";
+	std::string stringZone;
+	outFile << std::endl << std::endl << "Details of the seat: ";
+	if (ticket.getZone() == ZoneType::Category1) {
+		stringZone = "Category 1";
+	}
+	else if (ticket.getZone() == ZoneType::Category2) {
+		stringZone = "Category 2";
+	}
+	if (ticket.getZone() == ZoneType::VIP) {
+		stringZone = "VIP";
+	}
+	if (ticket.getZone() == ZoneType::Tribune) {
+		stringZone = "Tribune";
+	}
+	outFile << std::endl << "Category: " << stringZone;
+	outFile << std::endl << "Ticket ID: " << ticket.getUniqueID();
+	outFile << std::endl << "Row Number: " << ticket.getRowNumber();
+	outFile << std::endl << "Seat Number: " << ticket.getSeatNumber();
+	outFile << std::endl << "Personalised Message: " << ticket.getPersonalisedMessage();
 
+	if (ticket.getRowNumber() == 1) {
+		outFile << std::endl << std::endl << "Pay attention! The seat you have booked finds itself in the 1st row. In this case we kindly advise you to be 10 minutes prior other guests at the venue in order to occupy your seat.";
+	}
+	outFile.close();
 }
 
 
@@ -275,13 +320,16 @@ void menu() {
 		int tks8 = std::stoi(tks[8]);
 		Event event(eventVar, tks[1], tks[2], tks[3], tks[4], tks[5], tks6, tks7, tks8);
 		std::cout << "	" << event;
+		/*int a;
+		std::cin >> a;*/
 
-		User user;
-		user = createUser();
-		user.calculateTicketPrice(event);
+
+		//WHERE THE MAGIC HAPPENS
+		//User user = createUser();
+		//user.calculateTicketPrice(event);
 		Ticket ticket;
 		ticket = createSeat(event);
-		createTicket(event, user, ticket);
+		//createTicket(event, user, ticket);
 	}
 	else if (choice == 2) {
 		ok2 = 1;
@@ -298,8 +346,6 @@ int main() {
 	for (int i = 0; i < numar; i++) {
 		std::cout << newArray[i];
 	}*/
-	Ticket ticket1;
-	Ticket ticket2;
 	while (true) {
 		menu();
 		if (ok2 == 1) {

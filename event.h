@@ -80,7 +80,7 @@ public:
 		this->date = newDate;
 	}
 	void setTime(std::string newTime) {
-		if (newTime.size() >= 6) {
+		if (newTime.size() > 6) {
 			throw std::exception("Time length is invalid!");
 		}
 		this->time = newTime;
@@ -178,23 +178,29 @@ public:
 		setLocation(newLocation);
 		setVenue(newVenue);
 		setDate(newDate);
+		setTime(newTime);
 		setVenue(newVenue);
 		setNumberOfRows(newNumberOfRows);
 		setNumberOfSeatsPerRow(newNumberOfSeatsPerRow);
 		//setEventPrice(newEventPrice);
 	}
 	//COPY CONSTRUCTOR
-	Event(const Event& newEvent) {
+	Event(const Event& newEvent): eventPrice(newEvent.eventPrice + this->eventPrice) {
 		this->eventType = newEvent.eventType;
 		this->numberOfRows = newEvent.numberOfRows;
+		this->numberfOfSeatsPerRow = newEvent.numberfOfSeatsPerRow;
 		this->name = newEvent.name;
 		this->date = newEvent.date;
 		this->time = newEvent.time;
 		this->setEventPrice(newEvent.eventPrice);
 	}
+	//MyClass(const MyClass& other, int additionalVariable)
+	//	: myVariable(other.myVariable + additionalVariable) {
+	//	// Additional copy construction code if needed
+	//}
 	//DESTRUCTOR
 	~Event() {
-
+		delete[] this->nameEvent;
 	}
 	//OTHER METHODS
 	int maximumNumberOfSeats() {

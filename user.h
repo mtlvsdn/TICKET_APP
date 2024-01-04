@@ -10,8 +10,8 @@ private:
 	char birthYear[5] = "2000";
 	std::string emailAddress = "john.doe23@gmail.com";
 	Concession concession = Concession::Standard;
-	double price = 100;
 	bool isAdult = false;
+	double price = 0;
 
 	//STATIC ATTRIBUTES
 	static const int MIN_NAME_LENGTH = 3;
@@ -20,7 +20,7 @@ private:
 public:
 	//SETTERS
 	void setName(std::string newName) {
-		if (newName.size() < MIN_NAME_LENGTH) {
+		if (newName.length() > MIN_NAME_LENGTH) {
 			throw std::exception("Name is too short!");
 		}
 		this->name = newName;
@@ -28,9 +28,9 @@ public:
 	void setNameUser(char* newNameUser) {
 		if (this->nameUser != NULL) {
 			delete[] this->nameUser;
-			this->nameUser = new char[strlen(newNameUser) + 1];
 		}
-		strcpy_s(this->nameUser, strlen(newNameUser), newNameUser);
+		this->nameUser = new char[strlen(newNameUser) + 1];
+		strcpy_s(this->nameUser, strlen(newNameUser) + 1, newNameUser);
 	}
 	void setAge(int newAge) {
 		if (newAge < MIN_AGE) {
@@ -38,13 +38,14 @@ public:
 		}
 		this->age = newAge;
 	}
-	void setBirthYear(const char* newBirthYear) {
-		if (strlen(newBirthYear) > 5) {
+	void setBirthYear(char newBirthYear[5]) {
+		if (strlen(newBirthYear) > 6) {
 			throw std::exception("The length of the year is to high!");
 		}
-		for (int i = 0; i < 5; i++) {
+		strcpy_s(this->birthYear, newBirthYear);
+		/*for (int i = 0; i < 4; i++) {
 			this->birthYear[i] = newBirthYear[i];
-		}
+		}*/
 	}
 	void setEmailAddress(std::string newEmailAddress) {
 		//validation
@@ -63,7 +64,7 @@ public:
 		else if (this->age >= 27 && this->age <= 64 && newConcession == Concession::Standard) {
 			this->concession = newConcession;
 		}
-		else if (this->age >= 64 && newConcession == Concession::Retired) {
+		else if (this->age >= 65 && newConcession == Concession::Retired) {
 			this->concession = newConcession;
 		}
 		else {
@@ -98,9 +99,6 @@ public:
 	Concession getConcession() {
 		return this->concession;
 	}
-	double getPrice() {
-		return this->price;
-	}
 	bool getAdult() {
 		return this->isAdult;
 	}
@@ -127,7 +125,7 @@ public:
 	}
 	//DESTRUCTORS
 	~User() {
-
+		delete[] this->nameUser;
 	}
 	//OTHER METHODS
 	void calculateTicketPrice(Event newEvent) {
@@ -156,6 +154,7 @@ public:
 		this->setAge(source.age);
 		this->setEmailAddress(source.emailAddress);
 		this->setConcession(source.concession);
+		return source;
 	}
 	//operator << (cout)
 	friend std::ostream& operator<<(std::ostream& console, const User& newUser);
