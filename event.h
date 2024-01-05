@@ -268,6 +268,12 @@ public:
 	bool operator!() {
 		return !this->isBigEvent;
 	}
+	virtual void virtualMethodForEvent1() {
+		std::cout << "This is the 1st virtual method for the User class" << std::endl;
+	}
+	virtual void virtualMethodForEvent2() {
+		std::cout << "This is the 2nd virtual method for the User class" << std::endl;
+	}
 };
 
 //operator << (cout)
@@ -289,3 +295,13 @@ std::istream& operator>>(std::istream& console, Event& newEvent) {
 	console >> newEvent.time;
 	return console;
 }
+
+class ChildClassForEvent : public Event {
+public:
+	void virtualMethodForEvent1() override {
+		std::cout << "This is the 1st overriden virtual method for the User class" << std::endl;
+	}
+	void virtualMethodForEvent2() override {
+		std::cout << "This is the 2nd overriden virtual method for the User class" << std::endl;
+	}
+};

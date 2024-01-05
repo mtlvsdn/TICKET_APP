@@ -257,6 +257,13 @@ public:
 	bool operator!() {
 		return !this->isFirstRow;
 	}
+
+	virtual void virtualMethodForTicket1() {
+		std::cout << "This is the 1st virtual method for the Ticket class" << std::endl;
+	}
+	virtual void virtualMethodForTicket2() {
+		std::cout << "This is the 2nd virtual method for the Ticket class" << std::endl;
+	}
 };
 
 //operator << (cout)
@@ -289,3 +296,46 @@ std::istream& operator>>(std::istream& console, Ticket& newTicket) {
 	console >> newTicket.seatNumber;
 	return console;
 }
+
+class ChildClassForTicket : public Ticket {
+public:
+	void virtualMethodForTicket1() override {
+		std::cout << "This is the 1st overriden virtual method for the Ticket class" << std::endl;
+	}
+	void virtualMethodForTicket2() override {
+		std::cout << "This is the 2nd overriden virtual method for the Ticket class" << std::endl;
+	}
+};
+
+class AbstractTicket {
+public:
+	// Pure virtual function
+	virtual void pureVirtualFunctionForTheTicket() const = 0;
+
+	// Non-pure virtual function with an implementation
+	void nonPureFunctionForTheTicket() const {
+		std::cout << "Always attend the events you like!" << std::endl;
+	}
+
+	// Virtual destructor (important for polymorphism)
+	virtual ~AbstractTicket() {}
+};
+
+class ConcreteClass : public AbstractTicket {
+private:
+	int variable = 0;
+public:
+	void setVariable(int newVariable) {
+		if (variable > 0) {
+			throw std::exception("Invalid number! Your number is negative!");
+		}
+		this->variable = newVariable;
+	}
+	int getVariable() {
+		return this->variable;
+	}
+	// Implementation of the pure virtual function
+	void pureVirtualFunctionForTheTicket() const override {
+		std::cout << this->variable << std::endl;
+	}
+};

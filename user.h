@@ -201,6 +201,12 @@ public:
 	bool operator!() {
 		return !this->isAdult;
 	}
+	virtual void virtualMethodForUser1() {
+		std::cout << "This is the 1st overriden virtual method for the User class" << std::endl;
+	}
+	virtual void virtualMethodForUser2() {
+		std::cout << "This is the 2nd overriden virtual method for the User class" << std::endl;
+	}
 };
 
 //operator << (cout)
@@ -223,3 +229,30 @@ std::istream& operator>>(std::istream& console, User& newUser) {
 	newUser.setEmailAddress(variable);
 	return console;
 }
+
+class UserMessage : public User {
+	std::string happyMessage = "Have fun at your event!";
+public:
+	void setHappyMesssage(std::string newMessage) {
+		if (newMessage.length() < 5) {
+			throw std::exception("Invalid message!");
+		}
+		this->happyMessage = newMessage;
+	}
+	std::string getHappyMessage() {
+		return this->happyMessage;
+	}
+	UserMessage() : User(){
+
+	}
+};
+
+class ChildClassForUser : public User {
+public:
+	void virtualMethodForUser1() override {
+		std::cout << "This is the 1st overriden virtual method for the User class" << std::endl;
+	}
+	void virtualMethodForUser2() override {
+		std::cout << "This is the 2nd overriden virtual method for the User class" << std::endl;
+	}
+};
