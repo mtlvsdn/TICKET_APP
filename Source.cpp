@@ -15,7 +15,7 @@
 //const int Event::MIN_ID_LENGTH = 10;
 //const int User::MIN_NAME_LENGTH = 3;
 //const int User::MIN_AGE = 5;
-int ok2 = 0;
+//int ok2 = 0;
 
 User createUser() {
 	User user;
@@ -96,9 +96,21 @@ Ticket createSeat(Event event) {
 	std::cout << std::endl << "	Please choose your seats: ";
 	std::cout << std::endl << "	Row Number (There are a total of " + std::to_string(event.getNumberOfRows()) + " rows): ";
 	std::cin >> rowNumber;
+	if (rowNumber > event.getNumberOfRows()) {
+		while (rowNumber > event.getNumberOfRows()) {
+			std::cout << std::endl << "	This row does not exist. Try again: ";
+			std::cin >> rowNumber;
+		}
+	}
 	//std::cout << std::endl << std::endl << event << std::endl;
 	std::cout << std::endl << "	Seat Number (There are a total of " + std::to_string(event.getNumberOfSeatsPerRow()) + " seats per each row): ";
 	std::cin >> seatNumber;
+	if (seatNumber > event.getNumberOfSeatsPerRow()) {
+		while (seatNumber > event.getNumberOfSeatsPerRow()) {
+			std::cout << std::endl << "	This seat does not exist. Try again: ";
+			std::cin >> seatNumber;
+		}
+	}
 	while (rowNumber * seatNumber > event.maximumNumberOfSeats()) {
 		std::cout << std::endl << "	The seat you selected does not exist.";
 		std::cout << std::endl << "	Row Number: ";
@@ -142,7 +154,20 @@ void createTicket(Event event, User user, Ticket ticket) {
 	outFile << std::endl << "Age: " << user.getAge();
 	outFile << std::endl << "Birth Year: " << user.getBirthYear();
 	outFile << std::endl << "Email Address: " << user.getEmailAddress();
-	outFile << std::endl << "Ticket type: " << user.getEmailAddress();
+	std::string stringConcession;
+	if (user.getConcession() == Concession::Standard) {
+		stringConcession = "Standard";
+	}
+	else if (user.getConcession() == Concession::Child) {
+		stringConcession = "Child";
+	}
+	else if (user.getConcession() == Concession::Teen) {
+		stringConcession = "Teen";
+	}
+	else if (user.getConcession() == Concession::Retired) {
+		stringConcession = "Retired";
+	}
+	outFile << std::endl << "Ticket type: " << stringConcession;
 	//outFile << std::endl << "Price: " << event.getPrice();
 	outFile << std::endl << "Is the participant an adult?: ";
 	if (user.getAdult() == true) {
@@ -185,10 +210,11 @@ void createTicket(Event event, User user, Ticket ticket) {
 		outFile << std::endl << std::endl << "Pay attention! The seat you have booked finds itself in the 1st row. In this case we kindly advise you to be 10 minutes prior other guests at the venue in order to occupy your seat.";
 	}
 	outFile.close();
+	//std::cout << std::endl << std::endl << user;
 }
 
 
-void menu() {
+void menu(int* ok) {
 	Event myEvent;
 	//MENU LAYOUT
 	std::cout << std::endl;
@@ -254,10 +280,15 @@ void menu() {
 
 		//NAME
 		std::cout << std::endl << "	What is the name of your event?: ";
-		std::cin >> stringVar;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::getline(std::cin, stringVar);
+		//std::cin >> stringVar;
+		//std::cout << std::endl << stringVar;
+		//while (true) {}
 		std::cout << std::endl;
 		std::string line;
 		int number = 1;
+		int iHaveChoices = 0;
 		choices.open("choices.txt");
 		while (std::getline(file, line)) {
 			std::stringstream ss(line); // Create a stringstream from the line
@@ -271,6 +302,7 @@ void menu() {
 			//for (int i = 0; i < token)
 
 			if (tokens[0] == stringVar) {
+				iHaveChoices = 1;
 				std::cout << "	" << number << ". ";
 				choices << number << ",";
 				number++;
@@ -289,61 +321,69 @@ void menu() {
 		//std::cout << std::endl << number << std::endl;
 		int ok1 = 1;
 		file.open("choices.txt");
-		
-		std::cout << "	For which of the following do you want to buy a ticket?: ";
-		std::cout << std::endl << std::endl;
-		std::cout << "	-> ";
-		std::cin >> choice;
-		while (ok1 == 1) {
-			ok1 = 0;
-			if (choice >= number || choice < 1) {
-				ok1 = 1;
-				std::cout << "	The number you entered is incorrect. Please try choosing a valid option: ";
-				std::cin >> choice;
+		if (iHaveChoices == 1) {
+			std::cout << "	For which of the following do you want to buy a ticket?: ";
+			std::cout << std::endl << std::endl;
+			std::cout << "	-> ";
+			std::cin >> choice;
+			while (ok1 == 1) {
+				ok1 = 0;
+				if (choice >= number || choice < 1) {
+					ok1 = 1;
+					std::cout << "	The number you entered is incorrect. Please try choosing a valid option: ";
+					std::cin >> choice;
+				}
 			}
+			int i = 0;
+			while (i < choice) {
+				std::getline(file, line);
+				i++;
+			}
+			std::stringstream ss(line);
+			std::string tk;
+			std::vector<std::string> tks; // Vector to store tokens
+
+			while (std::getline(ss, tk, ',')) {
+				tks.push_back(tk); // Store each token in the vector
+			}
+
+			for (int j = 0; j < tks.size(); j++) {
+				std::cout << " " << tks[j];
+			}
+
+			std::cout << std::endl << tks[0];
+			int tks6 = std::stoi(tks[6]);
+			int tks7 = std::stoi(tks[7]);
+			int tks8 = std::stoi(tks[8]);
+			Event event(eventVar, tks[1], tks[2], tks[3], tks[4], tks[5], tks6, tks7, tks8);
+			std::cout << "	" << event;
+			/*int a;
+			std::cin >> a;*/
+
+
+			//WHERE THE MAGIC HAPPENS
+			User user = createUser();
+			user.calculateTicketPrice(event);
+			Ticket ticket;
+			ticket = createSeat(event);
+			createTicket(event, user, ticket);
 		}
-		int i = 0;
-		while (i < choice) {
-			std::getline(file, line);
-			i++;
+		else if (iHaveChoices == 0) {
+			system("cls");
+			std::cout << std::endl << "	Sorry, there is no event with this name!. Try again.";
+			std::cout << std::endl << std::endl;
 		}
-		std::stringstream ss(line);
-		std::string tk;
-		std::vector<std::string> tks; // Vector to store tokens
-
-		while (std::getline(ss, tk, ',')) {
-			tks.push_back(tk); // Store each token in the vector
-		}
-
-		for (int j = 0; j < tks.size(); j++) {
-			std::cout << " " << tks[j];
-		}
-
-		std::cout << std::endl << tks[0];
-		int tks6 = std::stoi(tks[6]);
-		int tks7 = std::stoi(tks[7]);
-		int tks8 = std::stoi(tks[8]);
-		Event event(eventVar, tks[1], tks[2], tks[3], tks[4], tks[5], tks6, tks7, tks8);
-		std::cout << "	" << event;
-		/*int a;
-		std::cin >> a;*/
-
-
-		//WHERE THE MAGIC HAPPENS
-		User user = createUser();
-		user.calculateTicketPrice(event);
-		Ticket ticket;
-		ticket = createSeat(event);
-		createTicket(event, user, ticket);
+		
 	}
 	else if (choice == 2) {
-		ok2 = 1;
+		*ok = 1;
 	}
 }
 
 int main() {
 	Event event;
 	User user;
+	int ok = 0;
 	//std::cout << std::endl << event.generateTicketID();
 	/*event.generateTicketID();
 	int numar = event.getNumberOfDigitsInID();
@@ -352,8 +392,8 @@ int main() {
 		std::cout << newArray[i];
 	}*/
 	while (true) {
-		menu();
-		if (ok2 == 1) {
+		menu(&ok);
+		if (ok == 1) {
 			std::exit(EXIT_SUCCESS);
 		}
 	}

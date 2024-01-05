@@ -1,120 +1,32 @@
-Real Madrid vs. Barcelona, Madrid, Santiago Bernabéu Stadium, 20/08/2023, 18:00
-Liverpool vs. Manchester United, Liverpool, Anfield, 21/08/2023, 19:30
-AC Milan vs. Inter Milan, Milan, San Siro, 22/08/2023, 20:15
-Arsenal vs. Chelsea, London, Emirates Stadium, 23/08/2023, 21:00
-Bayern Munich vs. Borussia Dortmund, Munich, Allianz Arena, 24/08/2023, 22:00
-Barcelona vs. Paris Saint-Germain, Barcelona, Camp Nou, 25/08/2023, 17:45
-Manchester City vs. Tottenham Hotspur, Manchester, Etihad Stadium, 26/08/2023, 16:30
-Juventus vs. Napoli, Turin, Allianz Stadium, 27/08/2023, 19:20
-Borussia Dortmund vs. Real Madrid, Dortmund, Signal Iduna Park, 28/08/2023, 18:10
-Liverpool vs. Chelsea, Liverpool, Anfield, 29/08/2023, 20:40
-Paris Saint-Germain vs. Bayern Munich, Paris, Parc des Princes, 30/08/2023, 22:30
-Barcelona vs. Manchester City, Barcelona, Camp Nou, 31/08/2023, 19:15
-Manchester United vs. Arsenal, Manchester, Old Trafford, 01/09/2023, 18:30
-AC Milan vs. Juventus, Milan, San Siro, 02/09/2023, 17:20
-Tottenham Hotspur vs. Inter Milan, London, Tottenham Hotspur Stadium, 03/09/2023, 20:10
-Real Madrid vs. Napoli, Madrid, Santiago Bernabéu Stadium, 04/09/2023, 19:00
-Chelsea vs. Borussia Dortmund, London, Stamford Bridge, 05/09/2023, 18:45
-Bayern Munich vs. Manchester United, Munich, Allianz Arena, 06/09/2023, 21:00
-Barcelona vs. Liverpool, Barcelona, Camp Nou, 07/09/2023, 18:30
-Paris Saint-Germain vs. Manchester City, Paris, Parc des Princes, 08/09/2023, 19:15
-Arsenal vs. Juventus, London, Emirates Stadium, 09/09/2023, 20:00
-Manchester United vs. Real Madrid, Manchester, Old Trafford, 10/09/2023, 18:45
-Tottenham Hotspur vs. AC Milan, London, Tottenham Hotspur Stadium, 11/09/2023, 20:30
-Inter Milan vs. Chelsea, Milan, San Siro, 12/09/2023, 19:30
-Napoli vs. Borussia Dortmund, Naples, Stadio Diego Armando Maradona, 13/09/2023, 20:15
-Liverpool vs. Paris Saint-Germain, Liverpool, Anfield, 14/09/2023, 19:00
-Bayern Munich vs. Arsenal, Munich, Allianz Arena, 15/09/2023, 18:30
-Barcelona vs. Tottenham Hotspur, Barcelona, Camp Nou, 16/09/2023, 21:00
-Chelsea vs. Manchester City, London, Stamford Bridge, 17/09/2023, 18:00
-Manchester United vs. Liverpool, Manchester, Old Trafford, 18/09/2023, 19:45
-Real Madrid vs. Liverpool, Madrid, Santiago Bernabéu Stadium, 19/09/2023, 20:00
-Barcelona vs. AC Milan, Barcelona, Camp Nou, 20/09/2023, 18:30
-Manchester United vs. Bayern Munich, Manchester, Old Trafford, 21/09/2023, 19:15
-Arsenal vs. Paris Saint-Germain, London, Emirates Stadium, 22/09/2023, 20:30
-Tottenham Hotspur vs. Chelsea, London, Tottenham Hotspur Stadium, 23/09/2023, 19:45
-Napoli vs. Juventus, Naples, Stadio Diego Armando Maradona, 24/09/2023, 20:00
-Inter Milan vs. Borussia Dortmund, Milan, San Siro, 25/09/2023, 18:30
-Bayern Munich vs. Paris Saint-Germain, Munich, Allianz Arena, 26/09/2023, 19:00
-Manchester City vs. Real Madrid, Manchester, Etihad Stadium, 27/09/2023, 18:45
-Liverpool vs. Barcelona, Liverpool, Anfield, 28/09/2023, 19:30
-Chelsea vs. Arsenal, London, Stamford Bridge, 29/09/2023, 21:00
-Juventus vs. Tottenham Hotspur, Turin, Allianz Stadium, 30/09/2023, 20:15
-Paris Saint-Germain vs. Inter Milan, Paris, Parc des Princes, 01/10/2023, 18:30
-Real Madrid vs. Bayern Munich, Madrid, Santiago Bernabéu Stadium, 02/10/2023, 19:15
-AC Milan vs. Chelsea, Milan, San Siro, 03/10/2023, 19:45
-Barcelona vs. Napoli, Barcelona, Camp Nou, 04/10/2023, 20:30
-Manchester United vs. Borussia Dortmund, Manchester, Old Trafford, 05/10/2023, 18:45
-Arsenal vs. Liverpool, London, Emirates Stadium, 06/10/2023, 19:30
-Tottenham Hotspur vs. Paris Saint-Germain, London, Tottenham Hotspur Stadium, 07/10/2023, 20:00
-Inter Milan vs. Real Madrid, Milan, San Siro, 08/10/2023, 21:00
-Bayern Munich vs. Chelsea, Munich, Allianz Arena, 09/10/2023, 18:00
-Napoli vs. Manchester City, Naples, Stadio Diego Armando Maradona, 10/10/2023, 18:30
-Manchester United vs. AC Milan, Manchester, Old Trafford, 11/10/2023, 19:15
-Juventus vs. Paris Saint-Germain, Turin, Allianz Stadium, 12/10/2023, 19:45
-Liverpool vs. Bayern Munich, Liverpool, Anfield, 13/10/2023, 20:30
-Barcelona vs. Borussia Dortmund, Barcelona, Camp Nou, 14/10/2023, 19:00
-Real Madrid vs. Arsenal, Madrid, Santiago Bernabéu Stadium, 15/10/2023, 20:00
-Manchester City vs. Chelsea, Manchester, Etihad Stadium, 16/10/2023, 18:30
-Tottenham Hotspur vs. Juventus, London, Tottenham Hotspur Stadium, 17/10/2023, 19:15
-Inter Milan vs. Napoli, Milan, San Siro, 18/10/2023, 19:45
-Liverpool vs. Manchester City, Liverpool, Anfield, 19/10/2023, 20:15
-Chelsea vs. Real Madrid, London, Stamford Bridge, 20/10/2023, 18:45
-Bayern Munich vs. Borussia Dortmund, Munich, Allianz Arena, 21/10/2023, 19:30
-Barcelona vs. Juventus, Barcelona, Camp Nou, 22/10/2023, 20:00
-Arsenal vs. Paris Saint-Germain, London, Emirates Stadium, 23/10/2023, 18:30
-Napoli vs. Inter Milan, Naples, Stadio Diego Armando Maradona, 24/10/2023, 19:15
-Manchester United vs. AC Milan, Manchester, Old Trafford, 25/10/2023, 20:30
-Tottenham Hotspur vs. Chelsea, London, Tottenham Hotspur Stadium, 26/10/2023, 19:00
-Barcelona vs. Bayern Munich, Barcelona, Camp Nou, 27/10/2023, 21:00
-Paris Saint-Germain vs. Liverpool, Paris, Parc des Princes, 28/10/2023, 19:45
-Real Madrid vs. Napoli, Madrid, Santiago Bernabéu Stadium, 29/10/2023, 20:15
-Inter Milan vs. Manchester City, Milan, San Siro, 30/10/2023, 18:00
-Juventus vs. Arsenal, Turin, Allianz Stadium, 31/10/2023, 18:30
-Borussia Dortmund vs. Chelsea, Dortmund, Signal Iduna Park, 01/11/2023, 19:15
-Manchester United vs. Paris Saint-Germain, Manchester, Old Trafford, 02/11/2023, 20:00
-Liverpool vs. Barcelona, Liverpool, Anfield, 03/11/2023, 20:30
-Bayern Munich vs. Real Madrid, Munich, Allianz Arena, 04/11/2023, 18:45
-Inter Milan vs. Tottenham Hotspur, Milan, San Siro, 05/11/2023, 19:30
-Manchester City vs. Napoli, Manchester, Etihad Stadium, 06/11/2023, 20:15
-Arsenal vs. Borussia Dortmund, London, Emirates Stadium, 07/11/2023, 19:45
-Juventus vs. Manchester United, Turin, Allianz Stadium, 08/11/2023, 20:00
-Paris Saint-Germain vs. Chelsea, Paris, Parc des Princes, 09/11/2023, 18:30
-Liverpool vs. Napoli, Liverpool, Anfield, 10/11/2023, 19:15
-Real Madrid vs. Borussia Dortmund, Madrid, Santiago Bernabéu Stadium, 11/11/2023, 19:30
-Bayern Munich vs. Arsenal, Munich, Allianz Arena, 12/11/2023, 20:00
-Tottenham Hotspur vs. Juventus, London, Tottenham Hotspur Stadium, 13/11/2023, 20:30
-Inter Milan vs. Chelsea, Milan, San Siro, 14/11/2023, 18:45
-Manchester City vs. Manchester United, Manchester, Etihad Stadium, 15/11/2023, 19:00
-Barcelona vs. Paris Saint-Germain, Barcelona, Camp Nou, 16/11/2023, 20:15
-Arsenal vs. Liverpool, London, Emirates Stadium, 17/11/2023, 20:45
-Chelsea vs. Napoli, London, Stamford Bridge, 18/11/2023, 19:15
-Tottenham Hotspur vs. Paris Saint-Germain, London, Tottenham Hotspur Stadium, 19/11/2023, 19:30
-Manchester United vs. Barcelona, Manchester, Old Trafford, 20/11/2023, 20:00
-Juventus vs. Bayern Munich, Turin, Allianz Stadium, 21/11/2023, 20:15
-Liverpool vs. Real Madrid, Liverpool, Anfield, 22/11/2023, 19:45
-Inter Milan vs. Borussia Dortmund, Milan, San Siro, 23/11/2023, 19:00
-Paris Saint-Germain vs. Arsenal, Paris, Parc des Princes, 24/11/2023, 20:30
-Barcelona vs. Chelsea, Barcelona, Camp Nou, 25/11/2023, 18:45
-Manchester City vs. Juventus, Manchester, Etihad Stadium, 26/11/2023, 19:00
-Bayern Munich vs. Liverpool, Munich, Allianz Arena, 27/11/2023, 20:15
-Real Madrid vs. Paris Saint-Germain, Madrid, Santiago Bernabéu Stadium, 28/11/2023, 18:30
-Arsenal vs. Manchester United, London, Emirates Stadium, 29/11/2023, 19:45
-Napoli vs. Barcelona, Naples, Stadio Diego Armando Maradona, 30/11/2023, 20:00
-Borussia Dortmund vs. Liverpool, Dortmund, Signal Iduna Park, 01/12/2023, 18:30
-Tottenham Hotspur vs. Bayern Munich, London, Tottenham Hotspur Stadium, 02/12/2023, 19:15
-Juventus vs. Real Madrid, Turin, Allianz Stadium, 03/12/2023, 19:30
-Manchester United vs. Napoli, Manchester, Old Trafford, 04/12/2023, 20:00
-Barcelona vs. Arsenal, Barcelona, Camp Nou, 05/12/2023, 20:15
-Paris Saint-Germain vs. Liverpool, Paris, Parc des Princes, 06/12/2023, 19:45
-Chelsea vs. Manchester City, London, Stamford Bridge, 07/12/2023, 19:30
-Bayern Munich vs. Borussia Dortmund, Munich, Allianz Arena, 08/12/2023, 18:45
-Real Madrid vs. Liverpool, Madrid, Santiago Bernabéu Stadium, 09/12/2023, 19:15
-Tottenham Hotspur vs. Barcelona, London, Tottenham Hotspur Stadium, 10/12/2023, 19:30
-Manchester United vs. Paris Saint-Germain, Manchester, Old Trafford, 11/12/2023, 20:00
-Juventus vs. Arsenal, Turin, Allianz Stadium, 12/12/2023, 20:15
-Napoli vs. Bayern Munich, Naples, Stadio Diego Armando Maradona, 13/12/2023, 19:45
-Borussia Dortmund vs. Chelsea, Dortmund, Signal Iduna Park, 14/12/2023, 19:00
-Liverpool vs. Juventus, Liverpool, Anfield, 15/12/2023, 20:30
-Barcelona vs. Manchester United, Barcelona, Camp Nou, 16/12/2023, 18:45
-Real Madrid vs. Bayern Munich, Madrid, Santiago Bernabéu Stadium, 17/12/2023, 19:00
+F.C. Barcelona vs. Real Madrid, New York, AMC Empire 25, 21/08/2023, 19:30, 3, 15, 22,
+AC Milan vs. Juventus, Los Angeles, TCL Chinese Theatre, 22/08/2023, 20:15, 4, 6, 29,
+Manchester United vs. Liverpool, Paris, Le Grand Rex, 23/08/2023, 21:00, 3, 6, 56,
+Chelsea vs. Arsenal, London, BFI IMAX, 24/08/2023, 22:00, 9, 8, 36,
+Real Madrid vs. FC Barcelona, Sydney, Event Cinemas George Street, 25/08/2023, 17:45, 8, 6, 40,
+Borussia Dortmund vs. Bayern Munich, Tokyo, Toho Cinemas Roppongi Hills, 26/08/2023, 16:30, 4, 9, 29,
+AS Roma vs. Inter Milan, Rome, Cinema Adriano, 27/08/2023, 19:20, 9, 10, 59,
+Manchester City vs. Tottenham Hotspur, Berlin, Zoo Palast, 28/08/2023, 18:10, 8, 11, 27,
+Paris Saint-Germain vs. Juventus, Mumbai, PVR Citi Mall, 29/08/2023, 20:40, 24, 23, 90,
+FC Barcelona vs. Real Madrid, Moscow, Octyabr Cinema, 30/08/2023, 22:30, 2, 3, 45,
+Arsenal vs. Chelsea, Beijing, China World Cinema, 31/08/2023, 19:15, 12, 34, 34,
+AC Milan vs. Inter Milan, Dubai, Reel Cinemas Dubai Mall, 01/09/2023, 18:30, 12, 54, 67,
+Paris Saint-Germain vs. AS Roma, Istanbul, Istanbul Cinebonus, 02/09/2023, 17:20, 43, 12, 78,
+Manchester United vs. Manchester City, San Francisco, AMC Metreon 16, 03/09/2023, 20:10, 43, 56, 90,
+F.C. Barcelona vs. Real Madrid, Toronto, Scotiabank Theatre Toronto, 04/09/2023, 19:00, 67, 9, 89,
+Chelsea vs. Arsenal, Chicago, AMC River East 21, 05/09/2023, 18:45, 36, 3, 89,
+Liverpool vs. Manchester City, Madrid, Cinesa Diagonal, 06/09/2023, 20:20, 34, 8, 89,
+Real Madrid vs. F.C. Barcelona, Sydney, Hayden Orpheum Picture Palace, 07/09/2023, 19:15, 83, 6, 89,
+Borussia Dortmund vs. Bayern Munich, New Orleans, The Broad Theater, 08/09/2023, 21:00, 6, 34, 62,
+Manchester City vs. Liverpool, Buenos Aires, Village Cines Recoleta, 09/09/2023, 18:30, 34, 2, 54,
+Chelsea vs. Arsenal, Edinburgh, Cameo Cinema, 10/09/2023, 20:15, 12, 7, 35,
+Paris Saint-Germain vs. Bayern Munich, Vienna, Gartenbaukino, 11/09/2023, 21:00, 35, 25, 26,
+Inter Milan vs. AC Milan, Boston, AMC Boston Common, 12/09/2023, 19:45, 25, 25, 62,
+Manchester United vs. Tottenham Hotspur, Amsterdam, Pathe Tuschinski, 13/09/2023, 18:30, 26, 27, 82,
+Chelsea vs. Manchester City, San Diego, AMC Mission Valley 20, 14/09/2023, 20:00, 67, 26, 72,
+Real Madrid vs. F.C. Barcelona, Sydney, Event Cinemas Bondi Junction, 15/09/2023, 19:00, 26, 2, 54,
+Bayern Munich vs. Borussia Dortmund, Dublin, Savoy Cinema, 16/09/2023, 18:45, 7, 8, 90,
+Manchester City vs. Liverpool, Vancouver, Cineplex Odeon International Village, 17/09/2023, 20:30, 36, 78, 90,
+F.C. Barcelona vs. Real Madrid, New York, Angelika Film Center, 18/09/2023, 19:15, 68, 89, 89,
+Real Madrid vs. F.C. Barcelona, London, Odeon Leicester Square, 19/09/2023, 21:15, 26, 72, 78,
+Chelsea vs. Arsenal, Paris, UGC Normandie, 20/09/2023, 18:30, 2, 3, 90,
+Manchester United vs. Manchester City, Los Angeles, Regal LA Live
