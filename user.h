@@ -1,4 +1,46 @@
 #pragma once
+class UserName : public std::exception {
+public:
+	UserName(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//11
+class UserAge : public std::exception {
+public:
+	UserAge(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//12
+class UserBirthYear : public std::exception {
+public:
+	UserBirthYear(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//13
+class UserEmailAddress : public std::exception {
+public:
+	UserEmailAddress(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//14
+class UserConcession : public std::exception {
+public:
+	UserConcession(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//14 bis
+class UserAdult : public std::exception {
+public:
+	UserAdult(std::string message) : exception(message.c_str()) {
+
+	}
+};
+
 
 enum class Concession { Standard, Teen = 30, Retired = 40, Child = 50 };
 
@@ -20,8 +62,8 @@ private:
 public:
 	//SETTERS
 	void setName(std::string newName) {
-		if (newName.length() > MIN_NAME_LENGTH) {
-			throw std::exception("Name is too short!");
+		if (newName.size() > MIN_NAME_LENGTH) {
+			throw UserName("Name is too short!");
 		}
 		this->name = newName;
 	}
@@ -34,13 +76,13 @@ public:
 	}
 	void setAge(int newAge) {
 		if (newAge < MIN_AGE) {
-			throw std::exception("Age is too small!");
+			throw UserAge("Age is too small!");
 		}
 		this->age = newAge;
 	}
 	void setBirthYear(char newBirthYear[5]) {
 		if (strlen(newBirthYear) > 6) {
-			throw std::exception("The length of the year is to high!");
+			throw UserBirthYear("The length of the year is to high!");
 		}
 		strcpy_s(this->birthYear, newBirthYear);
 		/*for (int i = 0; i < 4; i++) {
@@ -50,7 +92,7 @@ public:
 	void setEmailAddress(std::string newEmailAddress) {
 		//validation
 		if (newEmailAddress.find("@") == std::string::npos) {
-			throw std::exception("Invalid email address");
+			throw UserEmailAddress("Invalid email address");
 		}
 		this->emailAddress = newEmailAddress;
 	}
@@ -68,13 +110,13 @@ public:
 			this->concession = newConcession;
 		}
 		else {
-			throw std::exception("Invalid concession!");
+			throw UserConcession("Invalid concession!");
 		}
 		
 	}
 	void setAdult() {
 		if (this->age < 18) {
-			throw std::exception("User is underaged!");
+			throw UserAdult("User is underaged!");
 		}
 		this->isAdult = true;
 	}
@@ -128,9 +170,9 @@ public:
 		delete[] this->nameUser;
 	}
 	//OTHER METHODS
-	void calculateTicketPrice(Event newEvent) {
-		this->price = newEvent.getEventPrice() * (int(this->concession) / 100);
-		//return newPrice;
+	int calculateTicketPrice(Event newEvent) {
+		this->price = newEvent.getPrice() * (int(this->concession) / 100);
+		return this->price;
 	}
 	float howMuchConcessionDoIHave() {
 		if (this->age < 18) {

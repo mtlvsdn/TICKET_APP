@@ -1,5 +1,35 @@
 #pragma once
 
+//15 TICKET
+class TicketNrOfDigitsInId : public std::exception {
+public:
+	TicketNrOfDigitsInId(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//16
+class TicketRowNr : public std::exception {
+public:
+	TicketRowNr(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//17
+class TicketSeatNr : public std::exception {
+public:
+	TicketSeatNr(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//18
+class TicketPersonalMessage : public std::exception {
+public:
+	TicketPersonalMessage(std::string message) : exception(message.c_str()) {
+
+	}
+};
+
+
 enum class ZoneType { Category1, Category2, VIP, Tribune };
 
 class Ticket {
@@ -30,7 +60,7 @@ public:
 	}
 	void setNumberOfDigitsInID(int newNumberOfDigitsInID) {
 		if (newNumberOfDigitsInID < MIN_ID_LENGTH) {
-			throw std::exception("Length of ID is to short!");
+			throw TicketNrOfDigitsInId("Length of ID is to short!");
 		}
 	}
 	void setUniqueID(char* newUniqueID) {
@@ -57,19 +87,19 @@ public:
 	}
 	void setRowNumber(int newRow) {
 		if (newRow < 1) {
-			throw std::exception("Seat place cannot be a negative number!");
+			throw TicketRowNr("Seat place cannot be a negative number!");
 		}
 		this->rowNumber = newRow;
 	}
 	void setSeatNumber(int newSeat) {
 		if (newSeat < 1) {
-			throw std::exception("Seat place cannot be a negative number!");
+			throw TicketSeatNr("Seat place cannot be a negative number!");
 		}
 		this->seatNumber = newSeat;
 	}
 	void setPersonalisedMessage(const char* newPersonalisedMessage) {
 		if (strlen(newPersonalisedMessage) > 30) {
-			throw std::exception("Message is too long!");
+			throw TicketPersonalMessage("Message is too long!");
 		}
 		strcpy_s(this->personalisedMessage, strlen(newPersonalisedMessage) + 1, newPersonalisedMessage);
 	}

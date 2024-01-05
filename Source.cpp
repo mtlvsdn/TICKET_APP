@@ -168,7 +168,19 @@ void createTicket(Event event, User user, Ticket ticket) {
 		stringConcession = "Retired";
 	}
 	outFile << std::endl << "Ticket type: " << stringConcession;
-	//outFile << std::endl << "Price: " << event.getPrice();
+	//outFile << std::endl << "Price: " << std::to_string(user.calculateTicketPrice(event));
+	if (user.getConcession() == Concession::Standard) {
+		outFile << std::endl << "Price: " << event.getPrice();
+	}
+	else if (user.getConcession() == Concession::Child) {
+		outFile << std::endl << "Price: " << std::to_string(event.getPrice() * 0.5);
+	}
+	else if (user.getConcession() == Concession::Teen) {
+		outFile << std::endl << "Price: " << std::to_string(event.getPrice() * 0.7);
+	}
+	else if (user.getConcession() == Concession::Retired) {
+		outFile << std::endl << "Price: " << std::to_string(event.getPrice() * 0.6);
+	}
 	outFile << std::endl << "Is the participant an adult?: ";
 	if (user.getAdult() == true) {
 		outFile << "YES";
@@ -391,10 +403,73 @@ int main() {
 	for (int i = 0; i < numar; i++) {
 		std::cout << newArray[i];
 	}*/
-	while (true) {
-		menu(&ok);
-		if (ok == 1) {
-			std::exit(EXIT_SUCCESS);
+	try {
+		while (true) {
+			menu(&ok);
+			if (ok == 1) {
+				std::exit(EXIT_SUCCESS);
+			}
 		}
 	}
+	//EVENT
+	catch (EventNumberOfRows e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (EventNumberOfSeatsPerRow e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (EventLocation e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (EventVenue e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (EventName e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (EventDate e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (EventTime e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (EventYear e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (EventPrice e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	//USER
+	catch (UserName e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (UserAge e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (UserBirthYear e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (UserEmailAddress e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (UserConcession e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (UserAdult e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	//TICKET
+	catch (TicketNrOfDigitsInId e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (TicketRowNr e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (TicketSeatNr e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	catch (TicketPersonalMessage e) {
+		std::cout << std::endl << std::endl << "	Error: " << e.what() << std::endl;
+	}
+	
 }

@@ -3,6 +3,71 @@
 #include <ctime>
 #include <cstdlib>
 
+
+//1
+class EventNumberOfRows : public std::exception {
+public:
+	EventNumberOfRows(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//2
+class EventNumberOfSeatsPerRow : public std::exception {
+public:
+	EventNumberOfSeatsPerRow(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//3
+class EventLocation : public std::exception {
+public:
+	EventLocation(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//4
+class EventVenue : public std::exception {
+public:
+	EventVenue(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//5
+class EventName : public std::exception {
+public:
+	EventName(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//6
+class EventDate : public std::exception {
+public:
+	EventDate(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//7
+class EventTime : public std::exception {
+public:
+	EventTime(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//8
+class EventYear : public std::exception {
+public:
+	EventYear(std::string message) : exception(message.c_str()) {
+
+	}
+};
+//9
+class EventPrice : public std::exception {
+public:
+	EventPrice(std::string message) : exception(message.c_str()) {
+
+	}
+};
+
 enum class EventType {Movie, Theater, Match};
 
 class Event {
@@ -34,32 +99,32 @@ public:
 	}
 	void setNumberOfRows(int newNumberOfRows) {
 		if (newNumberOfRows <= 0) {
-			throw std::exception("Number of Rows cannot be negative!");
+			throw EventNumberOfRows("Number of Rows cannot be negative!");
 		}
 		this->numberOfRows = newNumberOfRows;
 	}
 	void setNumberOfSeatsPerRow(int newNumberOfSeatsPerRow) {
 		if (newNumberOfSeatsPerRow <= 0) {
-			throw std::exception("Number of Seats cannot be negative!");
+			throw EventNumberOfSeatsPerRow("Number of Seats cannot be negative!");
 		}
 		this->numberfOfSeatsPerRow = newNumberOfSeatsPerRow;
 	}
 	//SETTERS CHARACTERISTICS OF THE EVENT
 	void setLocation(std::string newlocation) {
 		if (newlocation.size() > 50) {
-			throw std::exception("Name of the location is too long!");
+			throw EventLocation("Name of the location is too long!");
 		}
 		this->location = newlocation;
 	}
 	void setVenue(std::string newVenue) {
 		if (newVenue.size() > 50) {
-			throw std::exception("Name of the venue is too long!");
+			throw EventVenue("Name of the venue is too long!");
 		}
 		this->location = newVenue;
 	}
 	void setName(std::string newName) {
 		if (newName.size() < MIN_NAME_LENGTH) {
-			throw std::exception("Name length is too short!");
+			throw EventName("Name length is too short!");
 		}
 		this->name = newName;
 	}
@@ -75,13 +140,13 @@ public:
 	}
 	void setDate(std::string newDate) {
 		if (newDate.size() > DATE_LENGTH + 1) {
-			throw std::exception("Date length is invalid!");
+			throw EventDate("Date length is invalid!");
 		}
 		this->date = newDate;
 	}
 	void setTime(std::string newTime) {
 		if (newTime.size() > 6) {
-			throw std::exception("Time length is invalid!");
+			throw EventTime("Time length is invalid!");
 		}
 		this->time = newTime;
 	}
@@ -91,7 +156,7 @@ public:
 		//	delete[] this->year;
 		//}
 		if (strlen(newYear) > 5) {
-			throw std::exception("The length of the year is to high!");
+			throw EventYear("The length of the year is to high!");
 		}
 		for (int i = 0; i < 5; i++) {
 			this->year[i] = newYear[i];
@@ -99,7 +164,7 @@ public:
 	}
 	void setEventPrice(const int newEventPrice) {
 		if (newEventPrice < 0) {
-			throw std::exception("Price cannot have a negative value!");
+			throw EventPrice("Price cannot have a negative value!");
 		}
 		//this->eventPrice = newEventPrice;
 	}
@@ -144,7 +209,7 @@ public:
 	const char* getYear() const {
 		return this->year;
 	}
-	int getEventPrice() const {
+	int getPrice() const {
 		return this->eventPrice;
 	}
 	bool getBigEvent() {
