@@ -176,7 +176,7 @@ void createTicket(Event event, User user, Ticket ticket) {
 	char* myChar = new char[ticket.getNumberOfDigitsInID() + 1];
 	/*strcpy_s(myChar, ticket.getNumberOfDigitsInID() + 1, ticket.getUniqueID());
 	outFile << std::endl << "Ticket ID: " << myChar;*/
-	outFile << std::endl << "Ticket ID: " << ticket.getUniqueID();
+	outFile << std::endl << "Ticket ID: " << ticket.getId();
 	outFile << std::endl << "Row Number: " << ticket.getRowNumber();
 	outFile << std::endl << "Seat Number: " << ticket.getSeatNumber();
 	outFile << std::endl << "Personalised Message: " << ticket.getPersonalisedMessage();

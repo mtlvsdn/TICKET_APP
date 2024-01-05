@@ -10,6 +10,7 @@ class Ticket {
 	int seatNumber = 1;
 	char personalisedMessage[30] = "Have fun at your event!";
 	bool isFirstRow = false;
+	long long intId = 0;
 
 	//STATIC ATTRIBUTES
 	static const int MIN_ID_LENGTH = 10;
@@ -48,7 +49,6 @@ public:
 		//strcpy_s(this->uniqueID, static_cast<rsize_t>(this->numberOfDigitsInID) + 1, newArray);
 		delete[] this->uniqueID;
 		this->uniqueID = newArray;
-		delete[] newArray;
 		std::cout << std::endl;
 		for (int i = 0; i < this->numberOfDigitsInID + 1; i++) {
 			std::cout << this->uniqueID[i];
@@ -93,6 +93,8 @@ public:
 		//std::cout << std::endl << "DISPLAY THIS MESSSAGE";
 		//return newArray;
 		////return this->uniqueID;
+
+		// int intValue = std::stoi(charPointer);
 		return this->uniqueID;
 	}
 	int getRowNumber() {
@@ -107,6 +109,9 @@ public:
 	bool getIsFirstRow() {
 		return this->isFirstRow;
 	}
+	long long getId() {
+		return this->intId;
+	}
 	//STATIC ATTRIBUTES
 	static const int MIN_PRICE = 0;
 	//OTHER METHODS
@@ -120,13 +125,15 @@ public:
 			newNumberOfDigits++;
 			copy = copy / 10;
 		}
-		this->setNumberOfDigitsInID(newNumberOfDigits);
+		//this->setNumberOfDigitsInID(newNumberOfDigits);
 
-		std::string myString = std::to_string(newUniqueID);
+		/*std::string myString = std::to_string(newUniqueID);
 		const char* myChar = myString.c_str();
 		char* nonConstChar = const_cast<char*>(myChar);
 
-		this->setUniqueID(nonConstChar);
+		this->setUniqueID(nonConstChar);*/
+
+		this->intId = newUniqueID;
 		/*std::cout << std::endl << std::endl << "THIS IS A MESSAGE";
 		for (int j = 0; j < this->numberOfDigitsInID; j++) {
 			std::cout << nonConstChar[j];
@@ -189,7 +196,7 @@ public:
 	Ticket(const Ticket& newTicket) {
 		this->setZone(newTicket.zone);
 		this->setNumberOfDigitsInID(newTicket.numberOfDigitsInID);
-		this->uniqueID = newTicket.uniqueID;
+		this->intId = newTicket.intId;
 		//generateTicketID();
 		this->rowNumber = newTicket.rowNumber;
 		this->seatNumber = newTicket.seatNumber;
@@ -203,7 +210,7 @@ public:
 	Ticket operator=(const Ticket& source) {
 		this->zone = source.zone;
 		this->numberOfDigitsInID = source.numberOfDigitsInID;
-		this->uniqueID = source.uniqueID;
+		this->intId = source.intId;
 		this->rowNumber = source.rowNumber;
 		this->seatNumber = source.seatNumber;
 		return source;
@@ -240,7 +247,7 @@ public:
 	}
 	//operator ==
 	bool operator==(Ticket& newTicket) {
-		if (strcmp(this->uniqueID, newTicket.uniqueID)) {
+		if (this->intId == newTicket.intId) {
 			return true;
 		}
 		else {
@@ -268,7 +275,7 @@ std::ostream& operator<<(std::ostream& console, const Ticket& newTicket) {
 		console << std::endl << "Zone: Tribune";
 	}
 	//console << std::endl << "Ticket ID: " << newTicket.uniqueID;
-	console << std::endl << "Unique ID: " << newTicket.uniqueID;
+	console << std::endl << "Unique ID: " << newTicket.intId;
 	console << std::endl << "Row Number: " << newTicket.rowNumber;
 	console << std::endl << "Seat Number: " << newTicket.seatNumber;
 	console << std::endl << "Personalised Message: " << newTicket.personalisedMessage;
